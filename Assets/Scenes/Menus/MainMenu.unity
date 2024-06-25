@@ -227,6 +227,18 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1202476649}
+    - target: {fileID: 3515724000071918593, guid: ad6b7e8434da42b4c950c06fed2b9e65, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899227798327646331, guid: ad6b7e8434da42b4c950c06fed2b9e65, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7368752610331680711, guid: ad6b7e8434da42b4c950c06fed2b9e65, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7388949426069425126, guid: ad6b7e8434da42b4c950c06fed2b9e65, type: 3}
       propertyPath: m_Name
       value: MainMenuCanvas
@@ -311,6 +323,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7942067118754081777, guid: ad6b7e8434da42b4c950c06fed2b9e65, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7949824745065724894, guid: ad6b7e8434da42b4c950c06fed2b9e65, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071461696608971493, guid: ad6b7e8434da42b4c950c06fed2b9e65, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8239529215591522547, guid: ad6b7e8434da42b4c950c06fed2b9e65, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9102105464123902804, guid: ad6b7e8434da42b4c950c06fed2b9e65, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -349,6 +377,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9102105464123902804, guid: ad6b7e8434da42b4c950c06fed2b9e65, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9131855979541055197, guid: ad6b7e8434da42b4c950c06fed2b9e65, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -28,7 +28,7 @@ public class MainMenuController : MonoBehaviour
         PlayerPrefs.SetInt("quickSaveSlot", quickSaveSlotID);
     }
 
-    #region Open Different panels
+
 
     public void openOptions()
     {
@@ -42,8 +42,6 @@ public class MainMenuController : MonoBehaviour
         //play click sfx
         playClickSound();
 
-        //enable BLUR
-        //Camera.main.GetComponent<Animator>().Play("BlurOn");
 
     }
 
@@ -59,8 +57,6 @@ public class MainMenuController : MonoBehaviour
         //play click sfx
         playClickSound();
 
-        //enable BLUR
-        //Camera.main.GetComponent<Animator>().Play("BlurOn");
 
     }
 
@@ -134,17 +130,13 @@ public class MainMenuController : MonoBehaviour
             Debug.Log("Please write a scene name in the 'newGameSceneName' field of the Main Menu Script and don't forget to " +
                 "add that scene in the Build Settings!");
     }
-    #endregion
 
-    #region Back Buttons
 
     public void back_options()
     {
         //simply play anim for CLOSING main options panel
         anim.Play("buttonTweenAnims_off");
 
-        //disable BLUR
-        // Camera.main.GetComponent<Animator>().Play("BlurOff");
 
         //play click sfx
         playClickSound();
@@ -164,9 +156,9 @@ public class MainMenuController : MonoBehaviour
     {
         Application.Quit();
     }
-    #endregion
 
-    #region Sounds
+
+
     public void playHoverClip()
     {
 
@@ -178,5 +170,5 @@ public class MainMenuController : MonoBehaviour
     }
 
 
-    #endregion
+
 }
