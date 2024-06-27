@@ -5,6 +5,7 @@ public class CharacterSelection : MonoBehaviour
 {
 	public GameObject[] characters;
 	public int selectedCharacter = 0;
+	public string newGameSceneName;
 
 	public void NextCharacter()
 	{
@@ -27,6 +28,7 @@ public class CharacterSelection : MonoBehaviour
 	public void StartGame()
 	{
 		PlayerPrefs.SetInt("selectedCharacter", selectedCharacter);
-		SceneManager.LoadScene(2, LoadSceneMode.Single);
+		//SceneManager.LoadScene(2, LoadSceneMode.Single);
+		SceneManager.LoadScene(newGameSceneName);
 	}
 }
