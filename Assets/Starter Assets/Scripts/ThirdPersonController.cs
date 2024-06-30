@@ -135,7 +135,7 @@ namespace StarterAssets
         private void Start()
         {
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
-            
+
             _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
@@ -163,7 +163,7 @@ namespace StarterAssets
 
         private void LateUpdate()
         {
-            CameraRotation();
+            //CameraRotation();
         }
 
         private void AssignAnimationIDs()
@@ -255,17 +255,20 @@ namespace StarterAssets
             // if there is a move input rotate player when the player is moving
             if (_input.move != Vector2.zero)
             {
-                _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg +
-                                  _mainCamera.transform.eulerAngles.y;
+                // _targetRotation = Mathf.Atan2(inputDirection.x, //inputDirection.z) * Mathf.Rad2Deg +
+                //                   _mainCamera.transform.eulerAngles.y;
+
+                _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg + 0;
+
                 float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity,
-                    RotationSmoothTime);
+                RotationSmoothTime);
 
                 // rotate to face input direction relative to camera position
                 transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
             }
 
-
             Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
+            //Vector3 targetDirection = Quaternion.Euler(0.0f, 90f, 0.0f) * Vector3.forward; ;
 
             // move the player
             _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +

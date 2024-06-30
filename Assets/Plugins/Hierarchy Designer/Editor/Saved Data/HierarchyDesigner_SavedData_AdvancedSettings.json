@@ -1,0 +1,13 @@
+{
+    "HierarchyLocation": 3,
+    "EnableDynamicChangesCheckForGameObjectMainIcon": true,
+    "EnableDynamicBackgroundForGameObjectMainIcon": true,
+    "EnablePreciseRectForDynamicBackgroundForGameObjectMainIcon": true,
+    "EnableCustomizationForGameObjectComponentIcons": true,
+    "EnableTooltipOnComponentIconHovered": true,
+    "EnableActiveStateEffectForComponentIcons": true,
+    "DisableComponentIconsForInactiveGameObjects": true,
+    "IncludeBackgroundImageForGradientBackground": true,
+    "ExcludeFoldersFromCountSelectToolCalculations": true,
+    "ExcludeSeparatorsFromCountSelectToolCalculations": true
+}
