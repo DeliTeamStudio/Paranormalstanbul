@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ef1779f57b14fc0448fbd0f12854f12f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 223640
+  packageName: Surface Align Tool
+  packageVersion: 1.0.3
+  assetPath: Assets/Seppe Peelman/Editor Tools/Surface Align Tool/Example/Materials/Mat_Green.mat
+  uploadId: 664322

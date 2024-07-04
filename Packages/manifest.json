@@ -5,6 +5,7 @@
     "com.unity.feature.characters-animation": "1.0.0",
     "com.unity.ide.visualstudio": "2.0.22",
     "com.unity.inputsystem": "1.7.0",
+    "com.unity.nuget.newtonsoft-json": "3.2.1",
     "com.unity.render-pipelines.core": "16.0.6",
     "com.unity.render-pipelines.universal": "16.0.6",
     "com.unity.sequences": "2.1.1",
@@ -46,5 +47,14 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
-  }
+  },
+  "scopedRegistries": [
+    {
+      "name": "package.openupm.com",
+      "url": "https://package.openupm.com",
+      "scopes": [
+        "dev.yarnspinner.unity"
+      ]
+    }
+  ]
 }

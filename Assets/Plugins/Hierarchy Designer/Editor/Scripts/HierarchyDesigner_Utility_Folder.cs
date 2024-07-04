@@ -59,11 +59,11 @@ namespace Verpha.HierarchyDesigner
 
         private static bool FolderExists(string folderName)
         {
-#if UNITY_6000_0_OR_NEWER
+            #if UNITY_6000_0_OR_NEWER
             Transform[] allTransforms = GameObject.FindObjectsByType<Transform>(FindObjectsSortMode.None);
-#else
-            Transform[] allTransforms = Object.FindObjectsByType<Transform>(FindObjectsSortMode.None);
-#endif
+            #else
+            Transform[] allTransforms = Object.FindObjectsOfType<Transform>(true);
+            #endif
             foreach (Transform t in allTransforms)
             {
                 if (t.gameObject.GetComponent<HierarchyDesignerFolder>() && t.gameObject.name.Equals(folderName))

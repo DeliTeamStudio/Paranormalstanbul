@@ -43,7 +43,7 @@ MonoBehaviour:
   m_ShaderStrippingSetting:
     m_Version: 0
     m_ExportShaderVariants: 1
-    m_ShaderVariantLogLevel: 0
+    m_ShaderVariantLogLevel: 2
     m_StripRuntimeDebugShaders: 1
   m_URPShaderStrippingSetting:
     m_Version: 0

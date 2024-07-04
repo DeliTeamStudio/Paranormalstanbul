@@ -47,7 +47,7 @@ namespace Verpha.HierarchyDesigner
             separator.tag = "EditorOnly";
             SetSeparatorState(separator, false);
             separator.SetActive(false);
-            if (separatorInspectorIcon != null) { EditorGUIUtility.SetIconForObject(separator, separatorInspectorIcon); }
+            if (separatorInspectorIcon != null) { EditorGUIUtility.SetIconForObject(separator, separatorInspectorIcon);  }
             Undo.RegisterCreatedObjectUndo(separator, $"Create {separatorName}");
         }
 
@@ -55,9 +55,9 @@ namespace Verpha.HierarchyDesigner
         {
             foreach (Component component in gameObject.GetComponents<Component>())
             {
-                if (component)
+                if (component) 
                 {
-                    component.hideFlags = editable ? HideFlags.None : HideFlags.NotEditable;
+                    component.hideFlags = editable ? HideFlags.None : HideFlags.NotEditable; 
                 }
             }
             gameObject.hideFlags = editable ? HideFlags.None : HideFlags.NotEditable;
@@ -68,11 +68,11 @@ namespace Verpha.HierarchyDesigner
         private static bool SeparatorExists(string separatorName)
         {
             string fullSeparatorName = "//" + separatorName;
-#if UNITY_6000_0_OR_NEWER
+            #if UNITY_6000_0_OR_NEWER
             Transform[] allTransforms = GameObject.FindObjectsByType<Transform>(FindObjectsSortMode.None);
-#else
-            Transform[] allTransforms = Object.FindObjectsByType<Transform>(FindObjectsSortMode.None);
-#endif
+            #else
+            Transform[] allTransforms = Object.FindObjectsOfType<Transform>(true);
+            #endif
             foreach (Transform t in allTransforms)
             {
                 if (t.gameObject.CompareTag("EditorOnly") && t.gameObject.name.Equals(fullSeparatorName))

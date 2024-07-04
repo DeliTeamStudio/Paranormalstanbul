@@ -1,3 +1,6 @@
+| Version 1.1.1.2f
+• (Bug Fix) Fixed a bug where the gradient background for separators would become null after entering and exiting play mode.
+
 | Version 1.1.1.2p
 • (New): Added a new feature, 'Gradient Background', to Separators.
 • (New): Added a new feature, 'Hierarchy Designer Location', in the Advanced Settings window.

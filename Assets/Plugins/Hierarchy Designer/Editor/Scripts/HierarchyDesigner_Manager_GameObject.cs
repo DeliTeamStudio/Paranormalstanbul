@@ -1291,7 +1291,7 @@ namespace Verpha.HierarchyDesigner
 
             if (separatorInfo.isGradientBackground)
             {
-                if (!gradientTextureCache.TryGetValue(instanceID, out Texture2D gradientTexture))
+                if (!gradientTextureCache.TryGetValue(instanceID, out Texture2D gradientTexture) || gradientTexture == null)
                 {
                     gradientTexture = CreateGradientTexture(separatorInfo.backgroundGradient, Mathf.FloorToInt(selectionRect.width));
                     gradientTextureCache[instanceID] = gradientTexture;
