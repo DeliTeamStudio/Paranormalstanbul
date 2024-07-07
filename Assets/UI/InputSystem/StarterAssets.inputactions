@@ -68,7 +68,7 @@
                 {
                     "name": "down",
                     "id": "64e4d037-32e1-4fb9-80e4-fc7330404dfe",
-                    "path": "",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
