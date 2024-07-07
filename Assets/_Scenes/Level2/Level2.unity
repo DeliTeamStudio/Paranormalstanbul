@@ -403,7 +403,7 @@ PrefabInstance:
     - target: {fileID: 5316046413323435985, guid: 351baf954590df348a71254a311227b1, type: 3}
       propertyPath: <Health>k__BackingField
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1816063290}
     - target: {fileID: 5316046413323435999, guid: 351baf954590df348a71254a311227b1, type: 3}
       propertyPath: m_Name
       value: Healthbar
@@ -1545,6 +1545,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 882972230}
   m_SourcePrefab: {fileID: 100100000, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
+--- !u!114 &1816063290 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8433250587745229819, guid: bc0f60396022b3549bd9964cfe7bba21, type: 3}
+  m_PrefabInstance: {fileID: 1758218729}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 143bf4aa5ce536246b13c53201ba94b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1818039160
 PrefabInstance:
   m_ObjectHideFlags: 0

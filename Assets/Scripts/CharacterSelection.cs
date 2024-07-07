@@ -4,14 +4,18 @@ using UnityEngine.SceneManagement;
 public class CharacterSelection : MonoBehaviour
 {
 	public GameObject[] characters;
+	public GameObject turn;
 	public int selectedCharacter = 0;
 	public string newGameSceneName;
 
 	public void NextCharacter()
 	{
-		characters[selectedCharacter].SetActive(false);
+		//characters[selectedCharacter].SetActive(false);
+		turn.transform.Rotate(0, 90, 0);
+		//Debug.Log("1");
 		selectedCharacter = (selectedCharacter + 1) % characters.Length;
 		characters[selectedCharacter].SetActive(true);
+		//Debug.Log("2");
 	}
 
 	public void PreviousCharacter()
