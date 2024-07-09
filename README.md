@@ -11,5 +11,12 @@ Oyuncu(lar), gizemli ve tehlikeli ortamlarda ipuçları toplar, bulmacaları ç�
 
 
 
-
 [![pat](https://c5.patreon.com/external/logo/become_a_patron_button.png)](https://www.patreon.com/GraphicEdit)
+
+
+
+
+[![cofe](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/graphicedit)
+
+
+
