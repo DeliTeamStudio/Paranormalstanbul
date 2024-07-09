@@ -532,6 +532,7 @@ GameObject:
   - component: {fileID: 1748049962097062372}
   - component: {fileID: 8433250587745229819}
   - component: {fileID: 8804956053829686098}
+  - component: {fileID: 9053260654381851205}
   m_Layer: 8
   m_Name: MainCharA
   m_TagString: Player
@@ -794,6 +795,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Health>k__BackingField: {fileID: 8433250587745229819}
   damageMultiplier: 1
+--- !u!114 &9053260654381851205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573644934326483673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b324308c129f7d84a8be7c726db8fbc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _characterName: "Raziye Yeti\u015F"
 --- !u!1 &1609129818838068550
 GameObject:
   m_ObjectHideFlags: 0

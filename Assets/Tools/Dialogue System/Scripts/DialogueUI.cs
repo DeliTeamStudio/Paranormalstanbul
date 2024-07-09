@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-namespace HeneGames.DialogueSystem
+namespace DialogueSystem
 {
     public class DialogueUI : MonoBehaviour
     {
@@ -55,7 +55,7 @@ namespace HeneGames.DialogueSystem
         private void Update()
         {
             //Delay timer
-            if(startDialogueDelayTimer > 0f)
+            if (startDialogueDelayTimer > 0f)
             {
                 startDialogueDelayTimer -= Time.deltaTime;
             }
@@ -156,7 +156,7 @@ namespace HeneGames.DialogueSystem
 
         public bool IsProcessingDialogue()
         {
-            if(currentDialogueManager != null)
+            if (currentDialogueManager != null)
             {
                 return true;
             }
@@ -186,11 +186,11 @@ namespace HeneGames.DialogueSystem
 
             float _speed = 1f - textAnimationSpeed;
 
-            foreach(char _letter in _letters)
+            foreach (char _letter in _letters)
             {
                 _textMeshObject.text += _letter;
 
-                if(_textMeshObject.text.Length == _letters.Length)
+                if (_textMeshObject.text.Length == _letters.Length)
                 {
                     typing = false;
                 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace HeneGames.DialogueSystem
+namespace DialogueSystem
 {
     [CreateAssetMenu(fileName = "New Character", menuName = "Dialogue System/New Dialogue Character", order = 1)]
 

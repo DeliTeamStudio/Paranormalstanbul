@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-namespace HeneGames.DialogueSystem
+namespace DialogueSystem
 {
     [RequireComponent(typeof(NavMeshAgent))]
     public class ClickMovement : MonoBehaviour
@@ -31,7 +31,7 @@ namespace HeneGames.DialogueSystem
                 //Set navmesh destination to raycast hit point
                 if (Physics.Raycast(_ray, out RaycastHit _hit, 100f, pointMask))
                 {
-                    if(nav.enabled)
+                    if (nav.enabled)
                     {
                         nav.SetDestination(_hit.point);
                     }

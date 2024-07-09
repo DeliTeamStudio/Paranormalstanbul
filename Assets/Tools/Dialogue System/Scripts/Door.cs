@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace HeneGames.DialogueSystem
+namespace DialogueSystem
 {
     public class Door : MonoBehaviour
     {
@@ -19,7 +19,7 @@ namespace HeneGames.DialogueSystem
 
         private void Update()
         {
-            if(open)
+            if (open)
             {
                 doorTransform.localPosition = Vector3.Lerp(doorTransform.localPosition, openTransform.localPosition, 1f * Time.deltaTime);
             }

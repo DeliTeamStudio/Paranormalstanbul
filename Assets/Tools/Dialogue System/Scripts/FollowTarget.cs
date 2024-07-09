@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace HeneGames.DialogueSystem
+namespace DialogueSystem
 {
     public class FollowTarget : MonoBehaviour
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace HeneGames.DialogueSystem
+namespace DialogueSystem
 {
     public class DialogueManager : MonoBehaviour
     {

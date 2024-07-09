@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-namespace HeneGames.DialogueSystem
+namespace DialogueSystem
 {
 	public class SimpleNavAgentAnimation : MonoBehaviour
 	{
