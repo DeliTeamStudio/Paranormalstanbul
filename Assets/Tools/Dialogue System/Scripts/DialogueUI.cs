@@ -50,7 +50,7 @@ namespace DialogueSystem
         [SerializeField] private float textAnimationSpeed = 0.5f;
 
         [Header("Next sentence input")]
-        public KeyCode actionInput = KeyCode.Space;
+        public KeyCode actionInput = KeyCode.E;
 
         private void Update()
         {
