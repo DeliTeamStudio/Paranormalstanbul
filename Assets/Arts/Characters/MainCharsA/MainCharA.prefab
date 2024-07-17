@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 40897825713521883}
   - component: {fileID: 6235182214740763392}
   - component: {fileID: 3845094757495624803}
-  - component: {fileID: 323558969993944594}
   - component: {fileID: 8433250587745229819}
   - component: {fileID: 8804956053829686098}
   - component: {fileID: 9053260654381851205}
   - component: {fileID: 919185909002413013}
+  - component: {fileID: 1531942015438668493}
   m_Layer: 0
   m_Name: MainCharA
   m_TagString: Player
@@ -77,7 +77,6 @@ CharacterController:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -87,24 +86,7 @@ CharacterController:
   m_StepOffset: 0.25
   m_SkinWidth: 0.02
   m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 0.93, z: 0}
---- !u!114 &323558969993944594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1573644934326483673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dbd62af2a25df34c9a8e8a7bcb2c370, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocity: 3
-  sprintAdittion: 3.5
-  jumpForce: 18
-  jumpTime: 0.85
-  gravity: 9.8
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!114 &8433250587745229819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +129,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterName: "Raziye Yeti\u015F"
 --- !u!114 &919185909002413013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573644934326483673}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9da6c51194ab84042bc718fd8ead8aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  nextSentenceDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  endDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1531942015438668493
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 8d63f4c85d0699745becf391dce18a16
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 144728
+  packageName: BVH Tools
+  packageVersion: 1.4.3
+  assetPath: Assets/Plugins/BVH Tools/README.md
+  uploadId: 312141
