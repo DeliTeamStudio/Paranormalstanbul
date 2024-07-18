@@ -118,17 +118,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &48044077 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8433250587745229819, guid: bc0f60396022b3549bd9964cfe7bba21, type: 3}
-  m_PrefabInstance: {fileID: 5964005563627403763}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 852374824}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 143bf4aa5ce536246b13c53201ba94b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &151730862
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +130,7 @@ GameObject:
   - component: {fileID: 151730865}
   - component: {fileID: 151730864}
   - component: {fileID: 151730863}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -679,6 +668,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -34.51, z: 0}
+--- !u!4 &695123105 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 571226533989332031, guid: bc0f60396022b3549bd9964cfe7bba21, type: 3}
+  m_PrefabInstance: {fileID: 5964005563627403763}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &708463337
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -737,11 +731,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.23
+      value: -29.13
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.13
+      value: 1.343
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -838,7 +832,7 @@ PrefabInstance:
     - target: {fileID: 5316046413323435985, guid: 351baf954590df348a71254a311227b1, type: 3}
       propertyPath: <Health>k__BackingField
       value: 
-      objectReference: {fileID: 48044077}
+      objectReference: {fileID: 0}
     - target: {fileID: 5316046413323435999, guid: 351baf954590df348a71254a311227b1, type: 3}
       propertyPath: m_Name
       value: Healthbar
@@ -2334,11 +2328,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.23
+      value: -29.13
       objectReference: {fileID: 0}
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.13
+      value: 1.343
       objectReference: {fileID: 0}
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2373,9 +2367,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3824308839440893098, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
+      propertyPath: Target.LookAtTarget
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3824308839440893098, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
-      objectReference: {fileID: 8338988565622553188}
+      objectReference: {fileID: 695123105}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2393,7 +2391,7 @@ GameObject:
   - component: {fileID: 1936703930}
   - component: {fileID: 1936703929}
   - component: {fileID: 1936703928}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube_003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2570,6 +2568,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2103895989679995261, guid: 68498c83b32bc794f95c8b8105f2f8d5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365436041655490585, guid: 68498c83b32bc794f95c8b8105f2f8d5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5006653432275117805, guid: 68498c83b32bc794f95c8b8105f2f8d5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5830482096675940153, guid: 68498c83b32bc794f95c8b8105f2f8d5, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.24
@@ -2629,6 +2639,26 @@ PrefabInstance:
     - target: {fileID: 5965209700560220994, guid: 68498c83b32bc794f95c8b8105f2f8d5, type: 3}
       propertyPath: m_Name
       value: Minivan
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965209700560220994, guid: 68498c83b32bc794f95c8b8105f2f8d5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651656792045175038, guid: 68498c83b32bc794f95c8b8105f2f8d5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939550018846433512, guid: 68498c83b32bc794f95c8b8105f2f8d5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964963487803900874, guid: 68498c83b32bc794f95c8b8105f2f8d5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8443246267165993020, guid: 68498c83b32bc794f95c8b8105f2f8d5, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2717,7 +2747,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 852374824}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9da6c51194ab84042bc718fd8ead8aa6, type: 3}
   m_Name: 
@@ -2731,11 +2761,6 @@ MonoBehaviour:
   endDialogueEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!4 &8338988565622553188 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3209545941874271431, guid: bc0f60396022b3549bd9964cfe7bba21, type: 3}
-  m_PrefabInstance: {fileID: 5964005563627403763}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
