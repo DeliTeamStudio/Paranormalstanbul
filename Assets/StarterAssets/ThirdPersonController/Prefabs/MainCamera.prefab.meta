@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 524aaefb43e55144aa6ccd171b656046
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 196526
+  packageName: Starter Assets - Third Person Character Controller | URP
+  packageVersion: 1.1.5
+  assetPath: Assets/StarterAssets/ThirdPersonController/Prefabs/MainCamera.prefab
+  uploadId: 592926

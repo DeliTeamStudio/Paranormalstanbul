@@ -166,7 +166,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7364137397537333687}
-  - {fileID: 7125290599717560398}
+  - {fileID: 3572320542262797622}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6319448480273673125
@@ -196,6 +196,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -357,7 +358,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1001 &7094104374206915733
+--- !u!1001 &3531423266459230701
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -409,17 +410,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainCharA
       objectReference: {fileID: 0}
-    - target: {fileID: 9053260654381851205, guid: bc0f60396022b3549bd9964cfe7bba21, type: 3}
-      propertyPath: _characterName
-      value: MainCharA
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc0f60396022b3549bd9964cfe7bba21, type: 3}
---- !u!4 &7125290599717560398 stripped
+--- !u!4 &3572320542262797622 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 40897825713521883, guid: bc0f60396022b3549bd9964cfe7bba21, type: 3}
-  m_PrefabInstance: {fileID: 7094104374206915733}
+  m_PrefabInstance: {fileID: 3531423266459230701}
   m_PrefabAsset: {fileID: 0}

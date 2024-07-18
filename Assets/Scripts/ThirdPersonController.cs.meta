@@ -11,8 +11,8 @@ MonoImporter:
   assetBundleVariant: 
 AssetOrigin:
   serializedVersion: 1
-  productId: 267961
-  packageName: 'Starter Assets: Character Controllers | URP'
-  packageVersion: 1.0.1
-  assetPath: Assets/Starter Assets/Runtime/ThirdPersonController/Scripts/ThirdPersonController.cs
-  uploadId: 653737
+  productId: 196526
+  packageName: Starter Assets - Third Person Character Controller | URP
+  packageVersion: 1.1.5
+  assetPath: Assets/Scripts/ThirdPersonController.cs
+  uploadId: 592926
