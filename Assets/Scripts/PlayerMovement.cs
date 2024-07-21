@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     private Vector3 moveDirection;
-    private Vector3 velocity;
+    [SerializeField] private Vector3 velocity;
 
     [SerializeField] private bool isGrounded;
     [SerializeField] private float groundCheckDistance;
@@ -27,22 +27,22 @@ public class PlayerMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
-
     }
-
 
     private void Update()
     {
-        isGrounded = Physics.CheckSphere(transform.position, groundCheckDistance, groundMask);
-        controller.Move(velocity * Time.deltaTime);
+        isGrounded = Physics.CheckSphere(transform.position, groundCheckDistance, groundMask, QueryTriggerInteraction.Ignore);
+
         moveWay = Input.GetAxis("Horizontal");
-
         moveDirection = new Vector3(0, 0, moveWay);
-
         moveDirection = transform.TransformDirection(moveDirection);
+
         velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
 
         Move();
+        //transform.rotation = Quaternion.Euler(0.0f, -90f, 0.0f);
+        if (isGrounded && velocity.y < 0) velocity.y = -2f;
 
     }
 
@@ -50,12 +50,9 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
 
-        //transform.rotation = Quaternion.Euler(0.0f, -90f, 0.0f);
-
         //Walk
         if (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftShift) && isGrounded)
         {
-
             anim.SetBool("toRun", false);
             anim.SetBool("toBack", false);
             anim.SetBool("toJump", false);
@@ -75,14 +72,12 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Jump
-        //else if (moveDirection == Vector3.zero && Input.GetKeyDown(KeyCode.Space) && isGrounded)
         else if (Input.GetKeyDown(KeyCode.Space) && !Input.GetKey(KeyCode.LeftArrow) && isGrounded)
         {
 
             anim.SetBool("toJump", true);
             velocity.y = math.sqrt(jumpHeight * gravity * -2);
             transform.Translate(0, 0, 0.2f);
-
         }
 
         //Idle
@@ -93,9 +88,8 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("toWalk", false);
             anim.SetBool("toJump", false);
             anim.SetBool("toIdle", true);
-
-
         }
+
 
         //Back
         if (Input.GetKey(KeyCode.LeftArrow) && isGrounded)
@@ -109,19 +103,7 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-
-
-
-
-
-        //controller.Move(moveDirection * Time.deltaTime);
-        //velocity.y += gravity * Time.deltaTime;
-        //controller.Move(velocity * Time.deltaTime);
-
-
-
     }
-
 
 
 

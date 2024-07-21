@@ -99,10 +99,10 @@ CharacterController:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 384
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
@@ -111,7 +111,7 @@ CharacterController:
   m_Radius: 0.18
   m_SlopeLimit: 30
   m_StepOffset: 0.3
-  m_SkinWidth: 0.0001
+  m_SkinWidth: 0.01
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.84, z: 0}
 --- !u!114 &891262847614166974
@@ -129,7 +129,7 @@ MonoBehaviour:
   moveSpeed: 0
   walkSpeed: 1
   runSpeed: 4
-  backSpeed: 1
+  backSpeed: 0.5
   isGrounded: 0
   groundCheckDistance: 0.2
   groundMask:
