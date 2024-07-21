@@ -1241,22 +1241,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainCharA
       objectReference: {fileID: 0}
-    - target: {fileID: 7172784384993584983, guid: bc0f60396022b3549bd9964cfe7bba21, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 8726281181835471731, guid: bc0f60396022b3549bd9964cfe7bba21, type: 3}
-      propertyPath: m_Height
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8726281181835471731, guid: bc0f60396022b3549bd9964cfe7bba21, type: 3}
-      propertyPath: m_Center.y
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 8726281181835471731, guid: bc0f60396022b3549bd9964cfe7bba21, type: 3}
-      propertyPath: m_SkinWidth
-      value: 0.17
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

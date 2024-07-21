@@ -72,9 +72,12 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Jump
-        else if (Input.GetKeyDown(KeyCode.Space) && !Input.GetKey(KeyCode.LeftArrow) && isGrounded)
+        else if (Input.GetKeyDown(KeyCode.Space) && !Input.GetKey(KeyCode.LeftArrow) && isGrounded && !Input.GetKey(KeyCode.LeftShift))
         {
 
+            anim.SetBool("toRun", false);
+            anim.SetBool("toBack", false);
+            anim.SetBool("toWalk", false);
             anim.SetBool("toJump", true);
             velocity.y = math.sqrt(jumpHeight * gravity * -2);
             transform.Translate(0, 0, 0.2f);
@@ -92,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         //Back
-        if (Input.GetKey(KeyCode.LeftArrow) && isGrounded)
+        if (Input.GetKey(KeyCode.LeftArrow) && isGrounded && !Input.GetKey(KeyCode.LeftShift))
         {
             anim.SetBool("toRun", false);
             anim.SetBool("toWalk", false);

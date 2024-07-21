@@ -107,13 +107,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 1.66
+  m_Height: 1.5
   m_Radius: 0.18
   m_SlopeLimit: 30
   m_StepOffset: 0.3
-  m_SkinWidth: 0.01
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.84, z: 0}
+  m_SkinWidth: 0.17
+  m_MinMoveDistance: 0
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!114 &891262847614166974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,6 +130,7 @@ MonoBehaviour:
   walkSpeed: 1
   runSpeed: 4
   backSpeed: 0.5
+  velocity: {x: 0, y: 0, z: 0}
   isGrounded: 0
   groundCheckDistance: 0.2
   groundMask:
@@ -215,7 +216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 02e57be98137672459f9fe3431d12b75, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 02e57be98137672459f9fe3431d12b75, type: 3}
       propertyPath: m_LocalPosition.z
