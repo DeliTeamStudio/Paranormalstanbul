@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float moveSpeed;
+    [SerializeField] private float moveSpeed;
     [SerializeField] private float walkSpeed;
     [SerializeField] private float runSpeed;
+    [SerializeField] private float backSpeed;
+
 
     private Vector3 moveDirection;
     private Vector3 velocity;
@@ -19,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     private Animator anim;
 
-
+    private float moveWay;
 
     private void Start()
     {
@@ -31,108 +33,93 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        isGrounded = Physics.CheckSphere(transform.position, groundCheckDistance, groundMask);
+        controller.Move(velocity * Time.deltaTime);
+        moveWay = Input.GetAxis("Horizontal");
+
+        moveDirection = new Vector3(0, 0, moveWay);
+
+        moveDirection = transform.TransformDirection(moveDirection);
+        velocity.y += gravity * Time.deltaTime;
+
         Move();
+
     }
 
 
     private void Move()
     {
-        isGrounded = Physics.CheckSphere(transform.position, groundCheckDistance, groundMask);
-
-        if (isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f;
-
-        }
-
-        float moveWay = Input.GetAxis("Horizontal");
-
-        moveDirection = new Vector3(0, 0, moveWay);
-        moveDirection = transform.TransformDirection(moveDirection);
 
         //transform.rotation = Quaternion.Euler(0.0f, -90f, 0.0f);
 
-        if (moveDirection != Vector3.zero && !Input.GetKey(KeyCode.LeftShift) && isGrounded)
+        //Walk
+        if (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftShift) && isGrounded)
         {
-            Walk();//anim
-        }
-        else if (moveDirection != Vector3.zero && Input.GetKey(KeyCode.LeftShift) && isGrounded)
 
-        {
-            moveDirection *= moveSpeed;
-            Run();//anim
+            anim.SetBool("toRun", false);
+            anim.SetBool("toBack", false);
+            anim.SetBool("toJump", false);
+            anim.SetBool("toWalk", true);
+            moveDirection *= walkSpeed;
+            controller.Move(moveDirection * Time.deltaTime);
         }
+
+        //Run
+        else if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.LeftShift) && isGrounded)
+        {
+            anim.SetBool("toBack", false);
+            anim.SetBool("toWalk", false);
+            anim.SetBool("toRun", true);
+            moveDirection *= runSpeed;
+            controller.Move(moveDirection * Time.deltaTime);
+        }
+
+        //Jump
+        //else if (moveDirection == Vector3.zero && Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        else if (Input.GetKeyDown(KeyCode.Space) && !Input.GetKey(KeyCode.LeftArrow) && isGrounded)
+        {
+
+            anim.SetBool("toJump", true);
+            velocity.y = math.sqrt(jumpHeight * gravity * -2);
+            transform.Translate(0, 0, 0.2f);
+
+        }
+
+        //Idle
         else if (moveDirection == Vector3.zero && isGrounded)
         {
+            anim.SetBool("toRun", false);
+            anim.SetBool("toBack", false);
+            anim.SetBool("toWalk", false);
+            anim.SetBool("toJump", false);
+            anim.SetBool("toIdle", true);
 
-            Idle();//anim
+
         }
 
-
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        //Back
+        if (Input.GetKey(KeyCode.LeftArrow) && isGrounded)
         {
-            Jump();//anim
+            anim.SetBool("toRun", false);
+            anim.SetBool("toWalk", false);
+            anim.SetBool("toJump", false);
+            anim.SetBool("toBack", true);
+            moveDirection *= backSpeed;
+            controller.Move(moveDirection * Time.deltaTime);
+
         }
 
 
-        //moveDirection *= moveSpeed;
-        controller.Move(moveDirection * Time.deltaTime);
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
-
-    }
-
-    private void Walk()
-    {
-
-        moveSpeed = walkSpeed;
-
-        anim.SetBool("toIdle", false);
-        anim.SetBool("toRun", false);
-        anim.SetBool("toJump", false);
-        anim.SetBool("toWalk", true);
 
 
-    }
-
-    private void Run()
-    {
-
-        moveSpeed = runSpeed;
-
-        anim.SetBool("toIdle", false);
-        anim.SetBool("toWalk", false);
-        anim.SetBool("toJump", false);
-        anim.SetBool("toRun", true);
-    }
-
-    private void Idle()
-    {
-
-        anim.SetBool("toRun", false);
-        anim.SetBool("toWalk", false);
-        anim.SetBool("toJump", false);
-        anim.SetBool("toIdle", true);
-
-    }
-
-    private void Jump()
-    {
-
-        anim.SetBool("toRun", false);
-        anim.SetBool("toWalk", false);
-        anim.SetBool("toIdle", false);
-        anim.SetBool("toJump", true);
-
-        velocity.y = math.sqrt(jumpHeight * -2 * gravity);
 
 
-    }
+        //controller.Move(moveDirection * Time.deltaTime);
+        //velocity.y += gravity * Time.deltaTime;
+        //controller.Move(velocity * Time.deltaTime);
 
-    private void BackRun()
-    {
-        //moveSpeed = walkSpeed;
-        //BackRun
+
+
     }
 
 

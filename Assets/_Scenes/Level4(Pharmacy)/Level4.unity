@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 151730865}
   - component: {fileID: 151730864}
   - component: {fileID: 151730863}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -627,7 +627,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1450334070
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -711,7 +711,7 @@ Transform:
   m_GameObject: {fileID: 1450334069}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.74, y: 0.504, z: 0.12}
+  m_LocalPosition: {x: -27.87, y: 0.504, z: 0.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -913,9 +913,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 891262847614166974, guid: bc0f60396022b3549bd9964cfe7bba21, type: 3}
+      propertyPath: backSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1573644934326483673, guid: bc0f60396022b3549bd9964cfe7bba21, type: 3}
       propertyPath: m_Name
       value: MainCharA
+      objectReference: {fileID: 0}
+    - target: {fileID: 8726281181835471731, guid: bc0f60396022b3549bd9964cfe7bba21, type: 3}
+      propertyPath: m_SkinWidth
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
