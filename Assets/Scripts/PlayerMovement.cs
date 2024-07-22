@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
 
         Move();
-        //transform.rotation = Quaternion.Euler(0.0f, -90f, 0.0f);
+
         if (isGrounded && velocity.y < 0) velocity.y = -2f;
 
     }
@@ -49,6 +49,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
+
+        //flip
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            transform.rotation = Quaternion.Euler(0.0f, -90f, 0.0f);
+        }
+        else if (Input.GetKey(KeyCode.UpArrow))
+        {
+            transform.rotation = Quaternion.Euler(0.0f, 90f, 0.0f);
+        }
 
         //Walk
         if (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftShift) && isGrounded)
@@ -78,7 +88,9 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("toRun", false);
             anim.SetBool("toBack", false);
             anim.SetBool("toWalk", false);
-            anim.SetBool("toJump", true);
+            //anim.SetBool("toJump", true);
+
+            anim.Play("Jumping");
             velocity.y = math.sqrt(jumpHeight * gravity * -2);
             transform.Translate(0, 0, 0.2f);
         }
