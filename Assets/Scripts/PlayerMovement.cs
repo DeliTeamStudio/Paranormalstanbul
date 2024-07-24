@@ -1,5 +1,6 @@
 using Unity.Mathematics;
 using UnityEngine;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     private Vector3 moveDirection;
-    [SerializeField] private Vector3 velocity;
+    private Vector3 velocity;
 
     [SerializeField] private bool isGrounded;
     [SerializeField] private float groundCheckDistance;
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
 
     private float moveWay;
+
 
     private void Start()
     {
@@ -53,7 +55,8 @@ public class PlayerMovement : MonoBehaviour
         //flip
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            transform.rotation = Quaternion.Euler(0.0f, -90f, 0.0f);
+
+            transform.rotation = Quaternion.Euler(0.0f, -90, 0.0f);
         }
         else if (Input.GetKey(KeyCode.UpArrow))
         {
@@ -88,7 +91,6 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("toRun", false);
             anim.SetBool("toBack", false);
             anim.SetBool("toWalk", false);
-            //anim.SetBool("toJump", true);
 
             anim.Play("Jumping");
             velocity.y = math.sqrt(jumpHeight * gravity * -2);

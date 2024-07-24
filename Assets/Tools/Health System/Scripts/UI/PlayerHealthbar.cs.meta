@@ -14,5 +14,5 @@ AssetOrigin:
   productId: 248090
   packageName: Game Core - Health System
   packageVersion: 1.0
-  assetPath: Assets/Ilumisoft/Health System/Scripts/UI/PlayerHealthbar.cs
+  assetPath: Assets/Tools/Health System/Scripts/UI/PlayerHealthbar.cs
   uploadId: 571247

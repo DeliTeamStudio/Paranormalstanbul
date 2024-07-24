@@ -51,6 +51,7 @@ MonoBehaviour:
   hideEmpty: 0
   alignWithCamera: 1
   changeSpeed: 100
+  currentValue: 80
 --- !u!1 &5316046413514025809
 GameObject:
   m_ObjectHideFlags: 0

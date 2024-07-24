@@ -6,7 +6,7 @@ namespace Ilumisoft.HealthSystem.UI
     [AddComponentMenu("Health System/UI/Healthbar")]
     public class Healthbar : MonoBehaviour
     {
-        [field:SerializeField]
+        [field: SerializeField]
         public HealthComponent Health { get; set; }
 
         [SerializeField]
@@ -24,7 +24,7 @@ namespace Ilumisoft.HealthSystem.UI
         [SerializeField, Min(0.1f), Tooltip("Controls how fast changes will be animated in points/second")]
         float changeSpeed = 100;
 
-        float currentValue;
+        [SerializeField] float currentValue;
 
         protected virtual void Reset()
         {
@@ -47,7 +47,7 @@ namespace Ilumisoft.HealthSystem.UI
             }
 
             currentValue = Mathf.MoveTowards(currentValue, Health.CurrentHealth, Time.deltaTime * changeSpeed);
-            
+
             UpdateFillbar();
             UpdateVisibility();
         }
