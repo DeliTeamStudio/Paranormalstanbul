@@ -33,7 +33,8 @@ namespace Verpha.HierarchyDesigner
         public static readonly Color ContentGUILightThemeColor = HexToColor("#F0F0F0");
         #endregion
 
-        #region Getters Methods
+        #region Methods
+        #region Getters
         public static Color GetDefaultEditorBackgroundColor()
         {
             return HierarchyDesigner_Manager_Editor.IsProSkin ? DefaultDarkThemeSkinColor : DefaultLightThemeSkinColor;
@@ -84,7 +85,7 @@ namespace Verpha.HierarchyDesigner
         }
         #endregion
 
-        #region Conversion Methods
+        #region Operations
         public static Color HexToColor(string hex)
         {
             try
@@ -129,6 +130,7 @@ namespace Verpha.HierarchyDesigner
 
             return gradient;
         }
+        #endregion
         #endregion
     }
 }

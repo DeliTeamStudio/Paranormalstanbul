@@ -67,16 +67,16 @@ namespace Verpha.HierarchyDesigner
         public static void SetSeparatorData(string separatorName, Color textColor, bool isGradientBackground, Color backgroundColor, Gradient backgroundGradient, int fontSize, FontStyle fontStyle, TextAnchor textAnchor, SeparatorImageType imageType)
         {
             separatorName = StripPrefix(separatorName);
-            if (separators.ContainsKey(separatorName))
+            if (separators.TryGetValue(separatorName, out HierarchyDesigner_SeparatorData separatorData))
             {
-                separators[separatorName].TextColor = textColor;
-                separators[separatorName].IsGradientBackground = isGradientBackground;
-                separators[separatorName].BackgroundColor = backgroundColor;
-                separators[separatorName].BackgroundGradient = backgroundGradient;
-                separators[separatorName].FontSize = fontSize;
-                separators[separatorName].FontStyle = fontStyle;
-                separators[separatorName].TextAnchor = textAnchor;
-                separators[separatorName].ImageType = imageType;
+                separatorData.TextColor = textColor;
+                separatorData.IsGradientBackground = isGradientBackground;
+                separatorData.BackgroundColor = backgroundColor;
+                separatorData.BackgroundGradient = backgroundGradient;
+                separatorData.FontSize = fontSize;
+                separatorData.FontStyle = fontStyle;
+                separatorData.TextAnchor = textAnchor;
+                separatorData.ImageType = imageType;
             }
             else
             {
@@ -102,9 +102,9 @@ namespace Verpha.HierarchyDesigner
             Dictionary<string, HierarchyDesigner_SeparatorData> orderedSeparators = new Dictionary<string, HierarchyDesigner_SeparatorData>();
             foreach (string key in separatorsOrder)
             {
-                if (tempSeparators.ContainsKey(key))
+                if (tempSeparators.TryGetValue(key, out HierarchyDesigner_SeparatorData separatorData))
                 {
-                    orderedSeparators[key] = tempSeparators[key];
+                    orderedSeparators[key] = separatorData;
                 }
             }
             separators = orderedSeparators;
@@ -113,7 +113,7 @@ namespace Verpha.HierarchyDesigner
         public static HierarchyDesigner_SeparatorData GetSeparatorData(string separatorName)
         {
             separatorName = StripPrefix(separatorName);
-            if (separators.TryGetValue(separatorName, out var separatorData))
+            if (separators.TryGetValue(separatorName, out HierarchyDesigner_SeparatorData separatorData))
             {
                 return separatorData;
             }
@@ -285,7 +285,7 @@ namespace Verpha.HierarchyDesigner
         #endregion
 
         #region Operations
-        private static string StripPrefix(string name)
+        public static string StripPrefix(string name)
         {
             if (name.StartsWith("//"))
             {

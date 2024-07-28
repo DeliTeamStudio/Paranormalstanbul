@@ -29,6 +29,7 @@ namespace Verpha.HierarchyDesigner
         private bool applyToTag = true;
         private bool applyToLayer = true;
         private bool applyToTree = true;
+        private bool applyToLines = true;
         private bool applyToLock = true;
         #endregion
         #endregion
@@ -86,6 +87,7 @@ namespace Verpha.HierarchyDesigner
             applyToTag = HierarchyDesigner_Shared_GUI.DrawToggle("GameObject's Tag", toggleLabelWidth, applyToTag);
             applyToLayer = HierarchyDesigner_Shared_GUI.DrawToggle("GameObject's Layer", toggleLabelWidth, applyToLayer);
             applyToTree = HierarchyDesigner_Shared_GUI.DrawToggle("Hierarchy Tree", toggleLabelWidth, applyToTree);
+            applyToLines = HierarchyDesigner_Shared_GUI.DrawToggle("Hierarchy Lines", toggleLabelWidth, applyToLines);
             applyToLock = HierarchyDesigner_Shared_GUI.DrawToggle("Lock Label", toggleLabelWidth, applyToLock);
             GUILayout.Space(4);
             EditorGUILayout.EndVertical();
@@ -150,6 +152,7 @@ namespace Verpha.HierarchyDesigner
             if (applyToTag) changesList.Add("GameObject's Tag");
             if (applyToLayer) changesList.Add("GameObject's Layer");
             if (applyToTree) changesList.Add("Hierarchy Tree");
+            if (applyToLines) changesList.Add("Hierarchy Lines");
             if (applyToLock) changesList.Add("Lock Label");
             message += string.Join(", ", changesList) + "?\n\n*If you select 'confirm' all values will be overridden and saved.*";
 
@@ -179,6 +182,11 @@ namespace Verpha.HierarchyDesigner
                     HierarchyDesigner_Utility_Presets.ApplyPresetToTree(selectedPreset);
                     shouldSaveDesignSettings = true;
                 }
+                if (applyToLines)
+                {
+                    HierarchyDesigner_Utility_Presets.ApplyPresetToLines(selectedPreset);
+                    shouldSaveDesignSettings = true;
+                }
                 if (applyToLock)
                 {
                     HierarchyDesigner_Utility_Presets.ApplyPresetToLockLabel(selectedPreset);
@@ -199,6 +207,7 @@ namespace Verpha.HierarchyDesigner
             applyToTag = enable;
             applyToLayer = enable;
             applyToTree = enable;
+            applyToLines = enable;
             applyToLock = enable;
         }
         #endregion

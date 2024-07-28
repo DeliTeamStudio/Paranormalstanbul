@@ -98,7 +98,7 @@ AnimatorStateTransition:
   m_HasExitTime: 0
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
-  m_OrderedInterruption: 1
+  m_OrderedInterruption: 0
   m_CanTransitionToSelf: 1
 --- !u!1101 &-5902982143269549804
 AnimatorStateTransition:
@@ -173,7 +173,7 @@ AnimatorStateMachine:
     m_Position: {x: 480, y: 560, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6491103034173813234}
-    m_Position: {x: 10, y: 420, z: 0}
+    m_Position: {x: 10, y: 410, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -484,7 +484,7 @@ AnimatorController:
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
     m_DefaultWeight: 0
-    m_IKPass: 0
+    m_IKPass: 1
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
 --- !u!1101 &1178158073002402592

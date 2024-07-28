@@ -71,11 +71,12 @@ namespace Verpha.HierarchyDesigner
                                 string actionName = ExtractActionsFromCategories(rawActionName, toolAttribute.Category);
                                 if (!string.IsNullOrEmpty(actionName))
                                 {
-                                    if (!cachedActions.ContainsKey(toolAttribute.Category))
+                                    if (!cachedActions.TryGetValue(toolAttribute.Category, out List<(string Name, MethodInfo Method)> actionsList))
                                     {
-                                        cachedActions[toolAttribute.Category] = new List<(string Name, MethodInfo Method)>();
+                                        actionsList = new List<(string Name, MethodInfo Method)>();
+                                        cachedActions[toolAttribute.Category] = actionsList;
                                     }
-                                    cachedActions[toolAttribute.Category].Add((actionName, method));
+                                    actionsList.Add((actionName, method));
                                 }
                             }
                         }

@@ -8,7 +8,7 @@ namespace Verpha.HierarchyDesigner
     {
         static HierarchyDesigner_Manager_Initializer()
         {
-            HierarchyDesigner_Manager_Editor.LoadCaches();
+            HierarchyDesigner_Manager_Editor.LoadCache();
             HierarchyDesigner_Configurable_GeneralSettings.Initialize();
             HierarchyDesigner_Configurable_AdvancedSettings.Initialize();
             HierarchyDesigner_Configurable_ShortcutsSettings.Initialize();

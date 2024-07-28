@@ -33,6 +33,8 @@ namespace Verpha.HierarchyDesigner
         private int tempLayerFontSize;
         private int tempTagLayerOffset;
         private int tempTagLayerSpacing;
+        private int tempHierarchyLineThickness;
+        private Color tempHierarchyLineColor;
         private Color tempLockColor;
         private TextAnchor tempLockTextAnchor;
         private FontStyle tempLockFontStyle;
@@ -72,6 +74,8 @@ namespace Verpha.HierarchyDesigner
             tempLayerFontSize = HierarchyDesigner_Configurable_DesignSettings.LayerFontSize;
             tempTagLayerOffset = HierarchyDesigner_Configurable_DesignSettings.TagLayerOffset;
             tempTagLayerSpacing = HierarchyDesigner_Configurable_DesignSettings.TagLayerSpacing;
+            tempHierarchyLineThickness = HierarchyDesigner_Configurable_DesignSettings.HierarchyLineThickness;
+            tempHierarchyLineColor = HierarchyDesigner_Configurable_DesignSettings.HierarchyLineColor;
             tempLockColor = HierarchyDesigner_Configurable_DesignSettings.LockColor;
             tempLockTextAnchor = HierarchyDesigner_Configurable_DesignSettings.LockTextAnchor;
             tempLockFontStyle = HierarchyDesigner_Configurable_DesignSettings.LockFontStyle;
@@ -173,6 +177,21 @@ namespace Verpha.HierarchyDesigner
             GUILayout.Space(4);
             #endregion
 
+            #region Hierarchy Lines
+            EditorGUILayout.BeginVertical(contentBackgroundGUIStyle);
+            EditorGUILayout.LabelField("Hierarchy Lines", contentGUIStyle);
+            GUILayout.Space(4);
+            using (new HierarchyDesigner_Shared_GUI.LabelWidth(labelWidth))
+            {
+                EditorGUI.BeginChangeCheck();
+                tempHierarchyLineThickness = EditorGUILayout.IntSlider("Line Thickness", tempHierarchyLineThickness, 1, 3);
+                tempHierarchyLineColor = EditorGUILayout.ColorField("Line Color", tempHierarchyLineColor);
+                if (EditorGUI.EndChangeCheck()) { hasModifiedChanges = true; }
+            }
+            EditorGUILayout.EndVertical();
+            GUILayout.Space(4);
+            #endregion
+
             #region Lock
             EditorGUILayout.BeginVertical(contentBackgroundGUIStyle);
             EditorGUILayout.LabelField("Lock Label", contentGUIStyle);
@@ -235,6 +254,8 @@ namespace Verpha.HierarchyDesigner
             HierarchyDesigner_Configurable_DesignSettings.LayerFontSize = tempLayerFontSize;
             HierarchyDesigner_Configurable_DesignSettings.TagLayerOffset = tempTagLayerOffset;
             HierarchyDesigner_Configurable_DesignSettings.TagLayerSpacing = tempTagLayerSpacing;
+            HierarchyDesigner_Configurable_DesignSettings.HierarchyLineThickness = tempHierarchyLineThickness;
+            HierarchyDesigner_Configurable_DesignSettings.HierarchyLineColor = tempHierarchyLineColor;
             HierarchyDesigner_Configurable_DesignSettings.LockColor = tempLockColor;
             HierarchyDesigner_Configurable_DesignSettings.LockTextAnchor = tempLockTextAnchor;
             HierarchyDesigner_Configurable_DesignSettings.LockFontStyle = tempLockFontStyle;

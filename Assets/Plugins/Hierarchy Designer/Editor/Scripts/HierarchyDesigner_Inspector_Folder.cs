@@ -41,11 +41,14 @@ namespace Verpha.HierarchyDesigner
                 SerializedProperty flattenEventProp = serializedObject.FindProperty("flattenEvent");
                 EditorGUILayout.PropertyField(flattenEventProp);
                 EditorGUILayout.Space(5);
+
                 EditorGUILayout.LabelField("Events:", HierarchyDesigner_Shared_GUI.InspectorContentGUIStyle);
                 EditorGUILayout.Space(2);
+
                 SerializedProperty onFlattenEventProp = serializedObject.FindProperty("OnFlattenEvent");
                 EditorGUILayout.PropertyField(onFlattenEventProp);
                 EditorGUILayout.Space(2);
+
                 SerializedProperty onFolderDestroyProp = serializedObject.FindProperty("OnFolderDestroy");
                 EditorGUILayout.PropertyField(onFolderDestroyProp);
             }

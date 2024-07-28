@@ -10,6 +10,7 @@ namespace Verpha.HierarchyDesigner
         private static Dictionary<string, Texture2D> textureCache = new Dictionary<string, Texture2D>();
         #endregion
 
+        #region Methods
         public static Texture2D LoadTexture(string textureName)
         {
             if (!textureCache.TryGetValue(textureName, out Texture2D texture))
@@ -44,8 +45,10 @@ namespace Verpha.HierarchyDesigner
 
         public static bool IsTextureLoaded(string textureName)
         {
-            return textureCache.ContainsKey(textureName) && textureCache[textureName] != null;
+            Debug.Log("<color=#FFCE74>HierarchyDesigner_Shared_ImportReload.cs</color> is <color=#FF7674>obsolete</color>. Please <color=#FF7674>delete</color> it from the Hierarchy Designer folder (<color=#FF7674>DELETE: Assets/.../Hierarchy Designer/Editor/Scripts/HierarchyDesigner_Shared_ImportReload.cs</color>).");
+            return true;
         }
+        #endregion
     }
 }
 #endif

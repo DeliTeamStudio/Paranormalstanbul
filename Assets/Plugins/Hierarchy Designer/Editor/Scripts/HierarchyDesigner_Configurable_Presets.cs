@@ -11,6 +11,9 @@ namespace Verpha.HierarchyDesigner
         public class HierarchyDesigner_Preset
         {
             public string presetName;
+            public Color folderTextColor;
+            public int folderFontSize;
+            public FontStyle folderFontStyle;
             public Color folderColor;
             public HierarchyDesigner_Configurable_Folder.FolderImageType folderImageType;
             public Color separatorTextColor;
@@ -30,6 +33,7 @@ namespace Verpha.HierarchyDesigner
             public int layerFontSize;
             public TextAnchor layerTextAnchor;
             public Color treeColor;
+            public Color hierarchyLineColor;
             public Color lockColor;
             public int lockFontSize;
             public FontStyle lockFontStyle;
@@ -37,6 +41,9 @@ namespace Verpha.HierarchyDesigner
 
             public HierarchyDesigner_Preset(
                 string name,
+                Color folderTextColor, 
+                int folderFontSize, 
+                FontStyle folderFontStyle,
                 Color folderColor,
                 HierarchyDesigner_Configurable_Folder.FolderImageType folderImageType,
                 Color separatorTextColor,
@@ -56,12 +63,16 @@ namespace Verpha.HierarchyDesigner
                 int layerFontSize,
                 TextAnchor layerTextAnchor,
                 Color treeColor,
+                Color hierarchyLineColor,
                 Color lockColor,
                 int lockFontSize,
                 FontStyle lockFontStyle,
                 TextAnchor lockTextAnchor)
             {
                 this.presetName = name;
+                this.folderTextColor = folderTextColor;
+                this.folderFontSize = folderFontSize;
+                this.folderFontStyle = folderFontStyle;
                 this.folderColor = folderColor;
                 this.folderImageType = folderImageType;
                 this.separatorTextColor = separatorTextColor;
@@ -81,6 +92,7 @@ namespace Verpha.HierarchyDesigner
                 this.layerFontSize = layerFontSize;
                 this.layerTextAnchor = layerTextAnchor;
                 this.treeColor = treeColor;
+                this.hierarchyLineColor = hierarchyLineColor;
                 this.lockColor = lockColor;
                 this.lockFontSize = lockFontSize;
                 this.lockFontStyle = lockFontStyle;

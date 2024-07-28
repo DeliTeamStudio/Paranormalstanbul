@@ -634,7 +634,7 @@ PlayerSettings:
     PS4: 
     PS5: 
     QNX: 
-    Standalone: 
+    Standalone: UNITY_PIPELINE_URP
     WebGL: 
     Windows Store Apps: 
     XboxOne: 

@@ -7,10 +7,6 @@ namespace Verpha.HierarchyDesigner
 {
     public class HierarchyDesigner_Utility_Folder
     {
-        #region Properties
-        private static readonly Texture2D folderInspectorIcon = HierarchyDesigner_Shared_Resources.FolderInspectorIcon;
-        #endregion
-
         #region Menu Items
         [MenuItem(HierarchyDesigner_Shared_MenuItems.Group_Folder + "/Create All Folders", false, HierarchyDesigner_Shared_MenuItems.LayerZero)]
         public static void CreateAllFolders()
@@ -40,12 +36,26 @@ namespace Verpha.HierarchyDesigner
         }
         #endregion
 
+        #region Context menu
+        [MenuItem(HierarchyDesigner_Shared_MenuItems.ContextMenu_Folders + "/Create All Folders", false, HierarchyDesigner_Shared_MenuItems.LayerZero)]
+        public static void ContextMenu_Folder_CreateAllFolders() => CreateAllFolders();
+
+        [MenuItem(HierarchyDesigner_Shared_MenuItems.ContextMenu_Folders + "/Create Default Folder", false, HierarchyDesigner_Shared_MenuItems.LayerZero)]
+        public static void ContextMenu_Folder_CreateDefaultFolder() => CreateDefaultFolder();
+
+        [MenuItem(HierarchyDesigner_Shared_MenuItems.ContextMenu_Folders + "/Create Missing Folders", false, HierarchyDesigner_Shared_MenuItems.LayerZero)]
+        public static void ContextMenu_Folder_CreateMissingFolders() => CreateMissingFolders();
+
+        [MenuItem(HierarchyDesigner_Shared_MenuItems.ContextMenu_Folders + "/Transform GameObject into a Folder", false, HierarchyDesigner_Shared_MenuItems.LayerOne)]
+        public static void ContextMenu_Folder_TransformGameObjectIntoAFolder() => TransformGameObjectIntoAFolder();
+        #endregion
+
         #region Methods
         private static void CreateFolder(string folderName, bool shouldRename)
         {
             GameObject folder = new GameObject(folderName);
             folder.AddComponent<HierarchyDesignerFolder>();
-            if (folderInspectorIcon != null) { EditorGUIUtility.SetIconForObject(folder, folderInspectorIcon); }
+            EditorGUIUtility.SetIconForObject(folder, HierarchyDesigner_Shared_Resources.FolderInspectorIcon);
             if (shouldRename) { EditorApplication.delayCall += () => BeginRename(folder); }
             Undo.RegisterCreatedObjectUndo(folder, $"Create {folderName}");
         }
@@ -72,6 +82,41 @@ namespace Verpha.HierarchyDesigner
                 }
             }
             return false;
+        }
+
+        private static void TransformGameObjectIntoAFolder()
+        {
+            GameObject selectedObject = Selection.activeGameObject;
+            if (selectedObject == null)
+            {
+                Debug.LogWarning("No GameObject selected.");
+                return;
+            }
+
+            string folderName = selectedObject.name;
+            HierarchyDesigner_Configurable_Folder.HierarchyDesigner_FolderData folderData = HierarchyDesigner_Configurable_Folder.GetFolderData(folderName);
+            if (folderData == null)
+            {
+                HierarchyDesigner_Configurable_Folder.SetFolderData(
+                    folderName,
+                    Color.white,
+                    12,
+                    FontStyle.Normal,
+                    Color.white,
+                    HierarchyDesigner_Configurable_Folder.FolderImageType.Default
+                );
+                if (selectedObject.GetComponent<HierarchyDesignerFolder>() == null)
+                {
+                    selectedObject.AddComponent<HierarchyDesignerFolder>();
+                }
+                EditorGUIUtility.SetIconForObject(selectedObject, HierarchyDesigner_Shared_Resources.DefaultTexture);
+                Debug.Log($"GameObject <color=#73FF7A>'{folderName}'</color> was transformed into a Folder and added to the Folders dictionary.");
+            }
+            else
+            {
+                Debug.LogWarning($"GameObject <color=#FF7674>'{folderName}'</color> already exists in the Folders dictionary.");
+                return;
+            }
         }
         #endregion
     }

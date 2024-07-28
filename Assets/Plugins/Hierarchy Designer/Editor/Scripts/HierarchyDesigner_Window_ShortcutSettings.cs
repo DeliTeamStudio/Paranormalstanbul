@@ -1,6 +1,5 @@
 #if UNITY_EDITOR
 using System.Collections.Generic;
-using System.Linq;
 using UnityEditor;
 using UnityEditor.ShortcutManagement;
 using UnityEngine;
@@ -91,7 +90,7 @@ namespace Verpha.HierarchyDesigner
 
             outerScroll = EditorGUILayout.BeginScrollView(outerScroll, GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(true));
             EditorGUILayout.BeginVertical(innerBackgroundGUIStyle);
-            
+
             #region Main
             #region Major Shortcuts
             EditorGUILayout.BeginVertical(contentBackgroundGUIStyle);
@@ -115,19 +114,30 @@ namespace Verpha.HierarchyDesigner
             foreach (string shortcutId in minorShortcutIdentifiers)
             {
                 ShortcutBinding currentBinding = ShortcutManager.instance.GetShortcutBinding(shortcutId);
-                string commandName = shortcutId.Split('/').Last();
+                string[] parts = shortcutId.Split('/');
+                string commandName = parts[parts.Length - 1];
 
                 EditorGUILayout.BeginHorizontal();
                 GUILayout.Label(commandName + ":", GUILayout.Width(minorShortcutCommandLabelWidth));
-                if (currentBinding.keyCombinationSequence.Any())
+
+                bool hasKeyCombination = false;
+                foreach (KeyCombination kc in currentBinding.keyCombinationSequence)
                 {
-                    string keyCombos = string.Join(" + ", currentBinding.keyCombinationSequence.Select(kc => kc.ToString()));
-                    GUILayout.Label(keyCombos, GUILayout.MinWidth(minorShortcutLabelWidth));
+                    if (!hasKeyCombination)
+                    {
+                        hasKeyCombination = true;
+                        GUILayout.Label(kc.ToString(), GUILayout.MinWidth(minorShortcutLabelWidth));
+                    }
+                    else
+                    {
+                        GUILayout.Label(" + " + kc.ToString(), GUILayout.MinWidth(minorShortcutLabelWidth));
+                    }
                 }
-                else
+                if (!hasKeyCombination)
                 {
                     GUILayout.Label("unassigned shortcut", messageGUIStyle, GUILayout.MinWidth(minorShortcutLabelWidth));
                 }
+
                 EditorGUILayout.EndHorizontal();
             }
             EditorGUILayout.EndScrollView();

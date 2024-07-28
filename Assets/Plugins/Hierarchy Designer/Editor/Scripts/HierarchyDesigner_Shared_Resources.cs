@@ -5,25 +5,64 @@ namespace Verpha.HierarchyDesigner
 {
     public static class HierarchyDesigner_Shared_Resources
     {
-        #region Properties
         #region General
         private static readonly string defaultTextureName = "Hierarchy Designer Default Texture";
         private static readonly string lockIconName = "Hierarchy Designer Lock Icon";
+
+        public static readonly Texture2D DefaultTexture = HierarchyDesigner_Shared_TextureLoader.LoadTexture(defaultTextureName);
+        public static readonly Texture2D LockIcon = HierarchyDesigner_Shared_TextureLoader.LoadTexture(lockIconName);
         #endregion
+
         #region Tree Branches
         private static readonly string treeBranchIconIName = "Hierarchy Designer Tree Branch Icon I";
         private static readonly string treeBranchIconLName = "Hierarchy Designer Tree Branch Icon L";
         private static readonly string treeBranchIconTName = "Hierarchy Designer Tree Branch Icon T";
         private static readonly string treeBranchIconTerminalBudName = "Hierarchy Designer Tree Branch Icon Terminal Bud";
+
+        public static readonly Texture2D TreeBranchIcon_I = HierarchyDesigner_Shared_TextureLoader.LoadTexture(treeBranchIconIName);
+        public static readonly Texture2D TreeBranchIcon_L = HierarchyDesigner_Shared_TextureLoader.LoadTexture(treeBranchIconLName);
+        public static readonly Texture2D TreeBranchIcon_T = HierarchyDesigner_Shared_TextureLoader.LoadTexture(treeBranchIconTName);
+        public static readonly Texture2D TreeBranchIcon_TerminalBud = HierarchyDesigner_Shared_TextureLoader.LoadTexture(treeBranchIconTerminalBudName);
         #endregion
-        #region Folder Image Types
+
+        #region Folder Images
         private static readonly string folderDefaultIconName = "Hierarchy Designer Folder Icon Default";
         private static readonly string folderDefaultOutlineIconName = "Hierarchy Designer Folder Icon Default Outline";
-        private static readonly string folderDefaultOutline2XIconName = "Hierarchy Designer Folder Icon Default Outline 2x";
         private static readonly string folderModernIIconName = "Hierarchy Designer Folder Icon Modern I";
+        private static readonly string folderModernIIIconName = "Hierarchy Designer Folder Icon Modern II";
+        private static readonly string folderModernIIIIconName = "Hierarchy Designer Folder Icon Modern III";
+        private static readonly string folderModernOutlineIconName = "Hierarchy Designer Folder Icon Modern Outline";
         private static readonly string folderInspectorIconName = "Hierarchy Designer Folder Icon Inspector";
+
+        public static readonly Texture2D FolderDefaultIcon = HierarchyDesigner_Shared_TextureLoader.LoadTexture(folderDefaultIconName);
+        public static readonly Texture2D FolderDefaultOutlineIcon = HierarchyDesigner_Shared_TextureLoader.LoadTexture(folderDefaultOutlineIconName);
+        public static readonly Texture2D FolderModernIIcon = HierarchyDesigner_Shared_TextureLoader.LoadTexture(folderModernIIconName);
+        public static readonly Texture2D FolderModernIIIcon = HierarchyDesigner_Shared_TextureLoader.LoadTexture(folderModernIIIconName);
+        public static readonly Texture2D FolderModernIIIIcon = HierarchyDesigner_Shared_TextureLoader.LoadTexture(folderModernIIIIconName);
+        public static readonly Texture2D FolderModernOutlineIcon = HierarchyDesigner_Shared_TextureLoader.LoadTexture(folderModernOutlineIconName);
+        public static readonly Texture2D FolderInspectorIcon = HierarchyDesigner_Shared_TextureLoader.LoadTexture(folderInspectorIconName);
+
+        public static Texture2D FolderImageType(HierarchyDesigner_Configurable_Folder.FolderImageType folderImageType)
+        {
+            switch (folderImageType)
+            {
+                case HierarchyDesigner_Configurable_Folder.FolderImageType.DefaultOutline:
+                    return FolderDefaultOutlineIcon;
+                case HierarchyDesigner_Configurable_Folder.FolderImageType.ModernI:
+                    return FolderModernIIcon;
+                case HierarchyDesigner_Configurable_Folder.FolderImageType.ModernII:
+                    return FolderModernIIIcon;
+                case HierarchyDesigner_Configurable_Folder.FolderImageType.ModernIII:
+                    return FolderModernIIIIcon;
+                case HierarchyDesigner_Configurable_Folder.FolderImageType.ModernOutline:
+                    return FolderModernOutlineIcon;
+                default:
+                    return FolderDefaultIcon;
+            }
+        }
         #endregion
-        #region Separator Image Types
+
+        #region Separator Images
         private static readonly string separatorBackgroundImageDefaultName = "Hierarchy Designer Separator Background Image Default";
         private static readonly string separatorBackgroundImageDefaultFadedBottomName = "Hierarchy Designer Separator Background Image Default Faded Bottom";
         private static readonly string separatorBackgroundImageDefaultFadedLeftName = "Hierarchy Designer Separator Background Image Default Faded Left";
@@ -40,68 +79,60 @@ namespace Verpha.HierarchyDesigner
         private static readonly string separatorBackgroundImageNextGenIName = "Hierarchy Designer Separator Background Image Next-Gen I";
         private static readonly string separatorBackgroundImageNextGenIIName = "Hierarchy Designer Separator Background Image Next-Gen II";
         private static readonly string separatorInspectorIconName = "Hierarchy Designer Separator Icon Inspector";
-        #endregion
-        #endregion
 
-        #region Getters Methods
-        public static Texture2D DefaultTexture { get { return HierarchyDesigner_Shared_TextureLoader.LoadTexture(defaultTextureName); } }
-        public static Texture2D LockIcon { get { return HierarchyDesigner_Shared_TextureLoader.LoadTexture(lockIconName); } }
-        public static Texture2D TreeBranchIcon_I { get { return HierarchyDesigner_Shared_TextureLoader.LoadTexture(treeBranchIconIName); } }
-        public static Texture2D TreeBranchIcon_L { get { return HierarchyDesigner_Shared_TextureLoader.LoadTexture(treeBranchIconLName); } }
-        public static Texture2D TreeBranchIcon_T { get { return HierarchyDesigner_Shared_TextureLoader.LoadTexture(treeBranchIconTName); } }
-        public static Texture2D TreeBranchIcon_TerminalBud { get { return HierarchyDesigner_Shared_TextureLoader.LoadTexture(treeBranchIconTerminalBudName); } }
-        public static Texture2D FolderImageType(HierarchyDesigner_Configurable_Folder.FolderImageType folderImageType)
-        {
-            switch (folderImageType)
-            {
-                case HierarchyDesigner_Configurable_Folder.FolderImageType.DefaultOutline:
-                    return HierarchyDesigner_Shared_TextureLoader.LoadTexture(folderDefaultOutlineIconName);
-                case HierarchyDesigner_Configurable_Folder.FolderImageType.DefaultOutline2X:
-                    return HierarchyDesigner_Shared_TextureLoader.LoadTexture(folderDefaultOutline2XIconName);
-                case HierarchyDesigner_Configurable_Folder.FolderImageType.ModernI:
-                    return HierarchyDesigner_Shared_TextureLoader.LoadTexture(folderModernIIconName);
-                default:
-                    return HierarchyDesigner_Shared_TextureLoader.LoadTexture(folderDefaultIconName);
-            }
-        }
-        public static Texture2D FolderInspectorIcon { get { return HierarchyDesigner_Shared_TextureLoader.LoadTexture(folderInspectorIconName); } }
+        public static readonly Texture2D SeparatorBackgroundImageDefault = HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageDefaultName);
+        public static readonly Texture2D SeparatorBackgroundImageDefaultFadedBottom = HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageDefaultFadedBottomName);
+        public static readonly Texture2D SeparatorBackgroundImageDefaultFadedLeft = HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageDefaultFadedLeftName);
+        public static readonly Texture2D SeparatorBackgroundImageDefaultFadedSideways = HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageDefaultFadedSidewaysName);
+        public static readonly Texture2D SeparatorBackgroundImageDefaultFadedRight = HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageDefaultFadedRightName);
+        public static readonly Texture2D SeparatorBackgroundImageDefaultFadedTop = HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageDefaultFadedTopName);
+        public static readonly Texture2D SeparatorBackgroundImageClassicI = HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageClassicIName);
+        public static readonly Texture2D SeparatorBackgroundImageClassicII = HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageClassicIIName);
+        public static readonly Texture2D SeparatorBackgroundImageModernI = HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageModernIName);
+        public static readonly Texture2D SeparatorBackgroundImageModernII = HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageModernIIName);
+        public static readonly Texture2D SeparatorBackgroundImageModernIII = HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageModernIIIName);
+        public static readonly Texture2D SeparatorBackgroundImageNeoI = HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageNeoIName);
+        public static readonly Texture2D SeparatorBackgroundImageNeoII = HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageNeoIIName);
+        public static readonly Texture2D SeparatorBackgroundImageNextGenI = HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageNextGenIName);
+        public static readonly Texture2D SeparatorBackgroundImageNextGenII = HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageNextGenIIName);
+        public static readonly Texture2D SeparatorInspectorIcon = HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorInspectorIconName);
+
         public static Texture2D SeparatorImageType(HierarchyDesigner_Configurable_Separator.SeparatorImageType separatorImageType)
         {
             switch (separatorImageType)
             {
                 case HierarchyDesigner_Configurable_Separator.SeparatorImageType.DefaultFadedBottom:
-                    return HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageDefaultFadedBottomName);
+                    return SeparatorBackgroundImageDefaultFadedBottom;
                 case HierarchyDesigner_Configurable_Separator.SeparatorImageType.DefaultFadedLeft:
-                    return HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageDefaultFadedLeftName);
+                    return SeparatorBackgroundImageDefaultFadedLeft;
                 case HierarchyDesigner_Configurable_Separator.SeparatorImageType.DefaultFadedSideways:
-                    return HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageDefaultFadedSidewaysName);
+                    return SeparatorBackgroundImageDefaultFadedSideways;
                 case HierarchyDesigner_Configurable_Separator.SeparatorImageType.DefaultFadedRight:
-                    return HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageDefaultFadedRightName);
+                    return SeparatorBackgroundImageDefaultFadedRight;
                 case HierarchyDesigner_Configurable_Separator.SeparatorImageType.DefaultFadedTop:
-                    return HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageDefaultFadedTopName);
+                    return SeparatorBackgroundImageDefaultFadedTop;
                 case HierarchyDesigner_Configurable_Separator.SeparatorImageType.ClassicI:
-                    return HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageClassicIName);
+                    return SeparatorBackgroundImageClassicI;
                 case HierarchyDesigner_Configurable_Separator.SeparatorImageType.ClassicII:
-                    return HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageClassicIIName);
+                    return SeparatorBackgroundImageClassicII;
                 case HierarchyDesigner_Configurable_Separator.SeparatorImageType.ModernI:
-                    return HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageModernIName);
+                    return SeparatorBackgroundImageModernI;
                 case HierarchyDesigner_Configurable_Separator.SeparatorImageType.ModernII:
-                    return HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageModernIIName);
+                    return SeparatorBackgroundImageModernII;
                 case HierarchyDesigner_Configurable_Separator.SeparatorImageType.ModernIII:
-                    return HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageModernIIIName);
+                    return SeparatorBackgroundImageModernIII;
                 case HierarchyDesigner_Configurable_Separator.SeparatorImageType.NeoI:
-                    return HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageNeoIName);
+                    return SeparatorBackgroundImageNeoI;
                 case HierarchyDesigner_Configurable_Separator.SeparatorImageType.NeoII:
-                    return HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageNeoIIName);
+                    return SeparatorBackgroundImageNeoII;
                 case HierarchyDesigner_Configurable_Separator.SeparatorImageType.NextGenI:
-                    return HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageNextGenIName);
+                    return SeparatorBackgroundImageNextGenI;
                 case HierarchyDesigner_Configurable_Separator.SeparatorImageType.NextGenII:
-                    return HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageNextGenIIName);
+                    return SeparatorBackgroundImageNextGenII;
                 default:
-                    return HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorBackgroundImageDefaultName);
+                    return SeparatorBackgroundImageDefault;
             }
         }
-        public static Texture2D SeparatorInspectorIcon { get { return HierarchyDesigner_Shared_TextureLoader.LoadTexture(separatorInspectorIconName); } }
         #endregion
     }
 }

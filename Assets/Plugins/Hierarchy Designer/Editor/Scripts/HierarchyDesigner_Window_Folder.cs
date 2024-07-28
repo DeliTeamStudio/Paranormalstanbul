@@ -1,4 +1,5 @@
 ﻿#if UNITY_EDITOR
+using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -19,6 +20,7 @@ namespace Verpha.HierarchyDesigner
         private GUIStyle contentBackgroundGUIStyle;
         #endregion
         #region Const
+        private readonly int[] fontSizeOptions = new int[15];
         private const float defaultButtonWidth = 60;
         private const float moveFolderButtonWidth = 25;
         private const float folderCreationLabelWidth = 90;
@@ -31,10 +33,16 @@ namespace Verpha.HierarchyDesigner
         #endregion
         #region Folder Creation Values
         private string newFolderName = "";
+        private Color newTextColor = Color.white;
+        private int newFontSize = 12;
+        private FontStyle newFontStyle = FontStyle.Normal;
         private Color newFolderIconColor = Color.white;
         private HierarchyDesigner_Configurable_Folder.FolderImageType newFolderImageType = HierarchyDesigner_Configurable_Folder.FolderImageType.Default;
         #endregion
         #region Folder Global Fields Values
+        private Color tempGlobalTextColor = Color.white;
+        private int tempGlobalFontSize = 12;
+        private FontStyle tempGlobalFontStyle = FontStyle.Normal;
         private Color tempGlobalFolderIconColor = Color.white;
         private HierarchyDesigner_Configurable_Folder.FolderImageType tempGlobalFolderImageType = HierarchyDesigner_Configurable_Folder.FolderImageType.Default;
         #endregion
@@ -52,7 +60,16 @@ namespace Verpha.HierarchyDesigner
         #region Initialization
         private void OnEnable()
         {
+            InitFontSizeOptions();
             LoadTempValues();
+        }
+
+        private void InitFontSizeOptions()
+        {
+            for (int i = 0; i < fontSizeOptions.Length; i++)
+            {
+                fontSizeOptions[i] = 7 + i;
+            }
         }
 
         private void LoadTempValues()
@@ -89,7 +106,24 @@ namespace Verpha.HierarchyDesigner
             EditorGUILayout.EndHorizontal();
 
             EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField("Color", GUILayout.Width(folderCreationLabelWidth));
+            EditorGUILayout.LabelField("Text Color", GUILayout.Width(folderCreationLabelWidth));
+            newTextColor = EditorGUILayout.ColorField(newTextColor);
+            EditorGUILayout.EndHorizontal();
+
+            EditorGUILayout.BeginHorizontal();
+            string[] newFontSizeOptionsStrings = Array.ConvertAll(fontSizeOptions, x => x.ToString());
+            int newFontSizeIndex = Array.IndexOf(fontSizeOptions, newFontSize);
+            EditorGUILayout.LabelField("Font Size", GUILayout.Width(folderCreationLabelWidth));
+            newFontSize = fontSizeOptions[EditorGUILayout.Popup(newFontSizeIndex, newFontSizeOptionsStrings)];
+            EditorGUILayout.EndHorizontal();
+
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Font Style", GUILayout.Width(folderCreationLabelWidth));
+            newFontStyle = (FontStyle)EditorGUILayout.EnumPopup(newFontStyle);
+            EditorGUILayout.EndHorizontal();
+
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Image Color", GUILayout.Width(folderCreationLabelWidth));
             newFolderIconColor = EditorGUILayout.ColorField(newFolderIconColor);
             EditorGUILayout.EndHorizontal();
 
@@ -107,7 +141,7 @@ namespace Verpha.HierarchyDesigner
             {
                 if (IsFolderNameValid(newFolderName))
                 {
-                    CreateFolder(newFolderName, newFolderIconColor, newFolderImageType);
+                    CreateFolder(newFolderName, newTextColor, newFontSize, newFontStyle, newFolderIconColor, newFolderImageType);
                 }
                 else
                 {
@@ -128,9 +162,20 @@ namespace Verpha.HierarchyDesigner
                 GUILayout.Space(5);
                 EditorGUILayout.BeginHorizontal();
                 EditorGUI.BeginChangeCheck();
+                tempGlobalTextColor = EditorGUILayout.ColorField(tempGlobalTextColor, GUILayout.MinWidth(100), GUILayout.ExpandWidth(true));
+                if (EditorGUI.EndChangeCheck()) { UpdateGlobalFolderTextColor(tempGlobalTextColor); }
+                EditorGUI.BeginChangeCheck();
+                string[] tempFontSizeOptionsStrings = Array.ConvertAll(fontSizeOptions, x => x.ToString());
+                int tempFontSizeIndex = Array.IndexOf(fontSizeOptions, tempGlobalFontSize);
+                tempGlobalFontSize = fontSizeOptions[EditorGUILayout.Popup(tempFontSizeIndex, tempFontSizeOptionsStrings, GUILayout.Width(50))];
+                if (EditorGUI.EndChangeCheck()) { UpdateGlobalFolderFontSize(tempGlobalFontSize); }
+                EditorGUI.BeginChangeCheck();
+                tempGlobalFontStyle = (FontStyle)EditorGUILayout.EnumPopup(tempGlobalFontStyle, GUILayout.MinWidth(100), GUILayout.ExpandWidth(true));
+                if (EditorGUI.EndChangeCheck()) { UpdateGlobalFolderFontStyle(tempGlobalFontStyle); }
+                EditorGUI.BeginChangeCheck();
                 tempGlobalFolderIconColor = EditorGUILayout.ColorField(tempGlobalFolderIconColor, GUILayout.MinWidth(100), GUILayout.ExpandWidth(true));
                 if (EditorGUI.EndChangeCheck()) { UpdateGlobalFolderIconColor(tempGlobalFolderIconColor); }
-                if (GUILayout.Button(HierarchyDesigner_Configurable_Folder.GetFolderImageTypeDisplayName(tempGlobalFolderImageType), EditorStyles.popup)) { ShowFolderImageTypePopupGlobal(); }
+                if (GUILayout.Button(HierarchyDesigner_Configurable_Folder.GetFolderImageTypeDisplayName(tempGlobalFolderImageType), EditorStyles.popup, GUILayout.MinWidth(125), GUILayout.ExpandWidth(true))) { ShowFolderImageTypePopupGlobal(); }
                 EditorGUILayout.EndHorizontal();
                 EditorGUILayout.EndVertical();
                 GUILayout.Space(4);
@@ -265,20 +310,26 @@ namespace Verpha.HierarchyDesigner
         #region Operations
         private bool IsFolderNameValid(string folderName)
         {
-            return !string.IsNullOrEmpty(folderName) && !tempFolders.ContainsKey(folderName);
+            return !string.IsNullOrEmpty(folderName) && !tempFolders.TryGetValue(folderName, out _);
         }
 
-        private void CreateFolder(string folderName, Color color, HierarchyDesigner_Configurable_Folder.FolderImageType imageType)
+        private void CreateFolder(string folderName, Color textColor, int fontSize, FontStyle fontStyle, Color ImageColor, HierarchyDesigner_Configurable_Folder.FolderImageType imageType)
         {
             HierarchyDesigner_Configurable_Folder.HierarchyDesigner_FolderData newFolderData = new HierarchyDesigner_Configurable_Folder.HierarchyDesigner_FolderData
             {
                 Name = folderName,
-                Color = color,
+                TextColor = textColor,
+                FontSize = fontSize,
+                FontStyle = fontStyle,
+                ImageColor = ImageColor,
                 ImageType = imageType
             };
             tempFolders[folderName] = newFolderData;
             foldersOrder.Add(folderName);
             newFolderName = "";
+            newTextColor = Color.white;
+            newFontSize = 12;
+            newFontStyle = FontStyle.Normal;
             newFolderIconColor = Color.white;
             newFolderImageType = HierarchyDesigner_Configurable_Folder.FolderImageType.Default;
             hasModifiedChanges = true;
@@ -292,8 +343,14 @@ namespace Verpha.HierarchyDesigner
 
             EditorGUILayout.LabelField($"{index}) {folderData.Name}", GUILayout.Width(folderLabelWidth + extraFolderLabelWidthOffset));
             EditorGUI.BeginChangeCheck();
-            folderData.Color = EditorGUILayout.ColorField(folderData.Color, GUILayout.MinWidth(100), GUILayout.ExpandWidth(true));
-            if (GUILayout.Button(HierarchyDesigner_Configurable_Folder.GetFolderImageTypeDisplayName(folderData.ImageType), EditorStyles.popup)) { ShowFolderImageTypePopupForFolder(folderData); }
+            folderData.TextColor = EditorGUILayout.ColorField(folderData.TextColor, GUILayout.MinWidth(100), GUILayout.ExpandWidth(true));
+            string[] fontSizeOptionsStrings = Array.ConvertAll(fontSizeOptions, x => x.ToString());
+            int fontSizeIndex = Array.IndexOf(fontSizeOptions, folderData.FontSize);
+            if (fontSizeIndex == -1) { fontSizeIndex = 5; }
+            folderData.FontSize = fontSizeOptions[EditorGUILayout.Popup(fontSizeIndex, fontSizeOptionsStrings, GUILayout.Width(50))];
+            folderData.FontStyle = (FontStyle)EditorGUILayout.EnumPopup(folderData.FontStyle, GUILayout.Width(110));
+            folderData.ImageColor = EditorGUILayout.ColorField(folderData.ImageColor, GUILayout.MinWidth(100), GUILayout.ExpandWidth(true));
+            if (GUILayout.Button(HierarchyDesigner_Configurable_Folder.GetFolderImageTypeDisplayName(folderData.ImageType), EditorStyles.popup, GUILayout.MinWidth(125), GUILayout.ExpandWidth(true))) { ShowFolderImageTypePopupForFolder(folderData); }
             if (EditorGUI.EndChangeCheck()) { hasModifiedChanges = true; }
 
             if (GUILayout.Button("↑", GUILayout.Width(moveFolderButtonWidth)) && position > 0)
@@ -340,7 +397,7 @@ namespace Verpha.HierarchyDesigner
 
         private void RemoveFolder(string folderName)
         {
-            if (tempFolders.ContainsKey(folderName))
+            if (tempFolders.TryGetValue(folderName, out _))
             {
                 tempFolders.Remove(folderName);
                 foldersOrder.Remove(folderName);
@@ -350,11 +407,38 @@ namespace Verpha.HierarchyDesigner
         }
 
         #region Global Fields Methods
+        private void UpdateGlobalFolderTextColor(Color color)
+        {
+            foreach (HierarchyDesigner_Configurable_Folder.HierarchyDesigner_FolderData folder in tempFolders.Values)
+            {
+                folder.TextColor = color;
+            }
+            hasModifiedChanges = true;
+        }
+
+        private void UpdateGlobalFolderFontSize(int size)
+        {
+            foreach (HierarchyDesigner_Configurable_Folder.HierarchyDesigner_FolderData folder in tempFolders.Values)
+            {
+                folder.FontSize = size;
+            }
+            hasModifiedChanges = true;
+        }
+
+        private void UpdateGlobalFolderFontStyle(FontStyle style)
+        {
+            foreach (HierarchyDesigner_Configurable_Folder.HierarchyDesigner_FolderData folder in tempFolders.Values)
+            {
+                folder.FontStyle = style;
+            }
+            hasModifiedChanges = true;
+        }
+
         private void UpdateGlobalFolderIconColor(Color color)
         {
             foreach (HierarchyDesigner_Configurable_Folder.HierarchyDesigner_FolderData folder in tempFolders.Values)
             {
-                folder.Color = color;
+                folder.ImageColor = color;
             }
             hasModifiedChanges = true;
         }

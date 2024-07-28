@@ -29,6 +29,7 @@ namespace Verpha.HierarchyDesigner
         private bool tempEnableGameObjectTag;
         private bool tempEnableGameObjectLayer;
         private bool tempEnableHierarchyRows;
+        private bool tempEnableHierarchyLines;
         private bool tempEnableHierarchyButtons;
         private bool tempEnableMajorShortcuts;
         private bool tempDisableHierarchyDesignerDuringPlayMode;
@@ -65,6 +66,7 @@ namespace Verpha.HierarchyDesigner
             tempEnableGameObjectLayer = HierarchyDesigner_Configurable_GeneralSettings.EnableGameObjectLayer;
             tempEnableHierarchyTree = HierarchyDesigner_Configurable_GeneralSettings.EnableHierarchyTree;
             tempEnableHierarchyRows = HierarchyDesigner_Configurable_GeneralSettings.EnableHierarchyRows;
+            tempEnableHierarchyLines = HierarchyDesigner_Configurable_GeneralSettings.EnableHierarchyLines;
             tempEnableHierarchyButtons = HierarchyDesigner_Configurable_GeneralSettings.EnableHierarchyButtons;
             tempEnableMajorShortcuts = HierarchyDesigner_Configurable_GeneralSettings.EnableMajorShortcuts;
             tempDisableHierarchyDesignerDuringPlayMode = HierarchyDesigner_Configurable_GeneralSettings.DisableHierarchyDesignerDuringPlayMode;
@@ -113,6 +115,7 @@ namespace Verpha.HierarchyDesigner
             tempEnableGameObjectLayer = HierarchyDesigner_Shared_GUI.DrawToggle("Enable GameObject's Layer", toggleLabelWidth, tempEnableGameObjectLayer);
             tempEnableHierarchyTree = HierarchyDesigner_Shared_GUI.DrawToggle("Enable Hierarchy Tree", toggleLabelWidth, tempEnableHierarchyTree);
             tempEnableHierarchyRows = HierarchyDesigner_Shared_GUI.DrawToggle("Enable Hierarchy Rows", toggleLabelWidth, tempEnableHierarchyRows);
+            tempEnableHierarchyLines = HierarchyDesigner_Shared_GUI.DrawToggle("Enable Hierarchy Lines", toggleLabelWidth, tempEnableHierarchyLines);
             tempEnableHierarchyButtons = HierarchyDesigner_Shared_GUI.DrawToggle("Enable Hierarchy Buttons", toggleLabelWidth, tempEnableHierarchyButtons);
             tempEnableMajorShortcuts = HierarchyDesigner_Shared_GUI.DrawToggle("Enable Major Shortcuts", toggleLabelWidth, tempEnableMajorShortcuts);
             tempDisableHierarchyDesignerDuringPlayMode = HierarchyDesigner_Shared_GUI.DrawToggle("Disable Hierarchy Designer During PlayMode", toggleLabelWidth, tempDisableHierarchyDesignerDuringPlayMode);
@@ -202,6 +205,7 @@ namespace Verpha.HierarchyDesigner
             HierarchyDesigner_Configurable_GeneralSettings.EnableGameObjectTag = tempEnableGameObjectTag;
             HierarchyDesigner_Configurable_GeneralSettings.EnableGameObjectLayer = tempEnableGameObjectLayer;
             HierarchyDesigner_Configurable_GeneralSettings.EnableHierarchyRows = tempEnableHierarchyRows;
+            HierarchyDesigner_Configurable_GeneralSettings.EnableHierarchyLines = tempEnableHierarchyLines;
             HierarchyDesigner_Configurable_GeneralSettings.EnableHierarchyButtons = tempEnableHierarchyButtons;
             HierarchyDesigner_Configurable_GeneralSettings.EnableMajorShortcuts = tempEnableMajorShortcuts;
             HierarchyDesigner_Configurable_GeneralSettings.DisableHierarchyDesignerDuringPlayMode = tempDisableHierarchyDesignerDuringPlayMode;
@@ -222,6 +226,7 @@ namespace Verpha.HierarchyDesigner
             tempEnableGameObjectLayer = enable;
             tempEnableHierarchyTree = enable;
             tempEnableHierarchyRows = enable;
+            tempEnableHierarchyLines = enable;
             tempEnableHierarchyButtons = enable;
             tempEnableMajorShortcuts = enable;
             tempDisableHierarchyDesignerDuringPlayMode = enable;

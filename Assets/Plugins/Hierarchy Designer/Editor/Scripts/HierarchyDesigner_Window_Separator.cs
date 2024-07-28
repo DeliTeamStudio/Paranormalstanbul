@@ -343,7 +343,7 @@ namespace Verpha.HierarchyDesigner
         #region Operations
         private bool IsSeparatorNameValid(string separatorName)
         {
-            return !string.IsNullOrEmpty(separatorName) && !tempSeparators.ContainsKey(separatorName);
+            return !string.IsNullOrEmpty(separatorName) && !tempSeparators.TryGetValue(separatorName, out _);
         }
 
         private void CreateSeparator(string separatorName, Color textColor, bool isGradient, Color backgroundColor, Gradient backgroundGradient, int fontSize, FontStyle fontStyle, TextAnchor textAnchor, HierarchyDesigner_Configurable_Separator.SeparatorImageType imageType)
@@ -443,7 +443,7 @@ namespace Verpha.HierarchyDesigner
 
         private void RemoveSeparator(string separatorName)
         {
-            if (tempSeparators.ContainsKey(separatorName))
+            if (tempSeparators.TryGetValue(separatorName, out _))
             {
                 tempSeparators.Remove(separatorName);
                 separatorsOrder.Remove(separatorName);

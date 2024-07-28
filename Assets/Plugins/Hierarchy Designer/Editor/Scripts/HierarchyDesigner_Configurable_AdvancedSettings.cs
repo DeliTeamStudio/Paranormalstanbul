@@ -1,5 +1,6 @@
 #if UNITY_EDITOR
 using System.IO;
+using System.Text;
 using UnityEditor;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ namespace Verpha.HierarchyDesigner
         [System.Serializable]
         private class HierarchyDesigner_AdvancedSettings
         {
-            public HierarchyDesignerLocation HierarchyLocation = HierarchyDesignerLocation.TopBar;
+            public HierarchyDesignerLocation HierarchyLocation = HierarchyDesignerLocation.Tools;
             public bool EnableDynamicChangesCheckForGameObjectMainIcon = true;
             public bool EnableDynamicBackgroundForGameObjectMainIcon = true;
             public bool EnablePreciseRectForDynamicBackgroundForGameObjectMainIcon = true;
@@ -86,16 +87,19 @@ namespace Verpha.HierarchyDesigner
                 File.Delete(filePath);
             }
 
-            string fileContent = $@"#if UNITY_EDITOR
-namespace Verpha.HierarchyDesigner
-{{
-    public static class HierarchyDesigner_Shared_Constants
-    {{
-        public const string Base_HierarchyDesigner = ""{baseHierarchyDesigner}"";
-    }}
-}}
-#endif";
-            File.WriteAllText(filePath, fileContent);
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("#if UNITY_EDITOR");
+            sb.AppendLine("namespace Verpha.HierarchyDesigner");
+            sb.AppendLine("{");
+            sb.AppendLine("    public static class HierarchyDesigner_Shared_Constants");
+            sb.AppendLine("    {");
+            sb.AppendFormat("        public const string Base_HierarchyDesigner = \"{0}\";", baseHierarchyDesigner);
+            sb.AppendLine();
+            sb.AppendLine("    }");
+            sb.AppendLine("}");
+            sb.AppendLine("#endif");
+
+            File.WriteAllText(filePath, sb.ToString());
             AssetDatabase.Refresh();
         }
 
@@ -295,7 +299,7 @@ namespace Verpha.HierarchyDesigner
         {
             advancedSettings = new HierarchyDesigner_AdvancedSettings()
             {
-                HierarchyLocation = HierarchyDesignerLocation.TopBar,
+                HierarchyLocation = HierarchyDesignerLocation.Tools,
                 EnableDynamicChangesCheckForGameObjectMainIcon = true,
                 EnableDynamicBackgroundForGameObjectMainIcon = true,
                 EnablePreciseRectForDynamicBackgroundForGameObjectMainIcon = true,

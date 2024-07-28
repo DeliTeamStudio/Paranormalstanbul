@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 9fe73d4829a818b45bc5203189a2aa51
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 283140
+  packageName: ESave - Save System for Unity
+  packageVersion: 1.0.5
+  assetPath: Assets/Tools/ESave/Examples/URP_Example.unitypackage
+  uploadId: 679405

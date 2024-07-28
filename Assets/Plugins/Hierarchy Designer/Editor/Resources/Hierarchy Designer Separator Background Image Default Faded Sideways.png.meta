@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d7cb8dcff8875b94cace6db54f4c2608
+guid: b558911d2c2c12d43a68c7ca50228dce
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,7 +116,7 @@ AssetOrigin:
   serializedVersion: 1
   productId: 273928
   packageName: Hierarchy Designer
-  packageVersion: 1.1.2
+  packageVersion: 1.1.4.1f
   assetPath: Assets/Plugins/Hierarchy Designer/Editor/Resources/Hierarchy Designer
     Separator Background Image Default Faded Sideways.png
-  uploadId: 676475
+  uploadId: 680034

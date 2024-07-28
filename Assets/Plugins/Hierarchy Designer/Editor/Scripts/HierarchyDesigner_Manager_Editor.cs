@@ -15,7 +15,7 @@ namespace Verpha.HierarchyDesigner
         #endregion
 
         #region Initialization
-        public static void LoadCaches()
+        public static void LoadCache()
         {
             UpdateEditorThemeCache();
         }

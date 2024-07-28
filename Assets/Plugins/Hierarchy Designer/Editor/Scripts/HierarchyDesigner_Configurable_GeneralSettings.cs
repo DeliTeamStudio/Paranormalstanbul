@@ -19,6 +19,7 @@ namespace Verpha.HierarchyDesigner
             public bool EnableGameObjectTag = true;
             public bool EnableGameObjectLayer = true;
             public bool EnableHierarchyRows = true;
+            public bool EnableHierarchyLines = true;
             public bool EnableHierarchyButtons = true;
             public bool EnableMajorShortcuts = true;
             public bool DisableHierarchyDesignerDuringPlayMode = true;
@@ -49,6 +50,7 @@ namespace Verpha.HierarchyDesigner
             HierarchyDesigner_Manager_GameObject.EnableGameObjectTagCache = EnableGameObjectTag;
             HierarchyDesigner_Manager_GameObject.EnableGameObjectLayerCache = EnableGameObjectLayer;
             HierarchyDesigner_Manager_GameObject.EnableHierarchyRowsCache = EnableHierarchyRows;
+            HierarchyDesigner_Manager_GameObject.EnableHierarchyLinesCache = EnableHierarchyLines;
             HierarchyDesigner_Manager_GameObject.EnableHierarchyButtonsCache = EnableHierarchyButtons;
             HierarchyDesigner_Manager_GameObject.EnableMajorShortcutsCache = EnableMajorShortcuts;
             HierarchyDesigner_Manager_GameObject.DisableHierarchyDesignerDuringPlayModeCache = DisableHierarchyDesignerDuringPlayMode;
@@ -148,6 +150,19 @@ namespace Verpha.HierarchyDesigner
                 {
                     generalSettings.EnableHierarchyRows = value;
                     HierarchyDesigner_Manager_GameObject.EnableHierarchyRowsCache = value;
+                }
+            }
+        }
+
+        public static bool EnableHierarchyLines
+        {
+            get => generalSettings.EnableHierarchyLines;
+            set
+            {
+                if (generalSettings.EnableHierarchyLines != value)
+                {
+                    generalSettings.EnableHierarchyLines = value;
+                    HierarchyDesigner_Manager_GameObject.EnableHierarchyLinesCache = value;
                 }
             }
         }
@@ -295,6 +310,7 @@ namespace Verpha.HierarchyDesigner
                 EnableGameObjectTag = true,
                 EnableGameObjectLayer = true,
                 EnableHierarchyRows = true,
+                EnableHierarchyLines = true,
                 EnableHierarchyButtons = true,
                 EnableMajorShortcuts = true,
                 DisableHierarchyDesignerDuringPlayMode = true,

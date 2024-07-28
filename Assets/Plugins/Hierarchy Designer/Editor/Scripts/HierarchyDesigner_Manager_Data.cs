@@ -14,29 +14,29 @@ namespace Verpha.HierarchyDesigner
         private const string scriptsFolderName = "Scripts";
         #endregion
 
-        #region Path Methods
+        #region Methods
         public static string GetDataFilePath(string fileName)
         {
-            string rootPath = FindHierarchyDesignerRootPath();
-            string fullPath = Path.Combine(rootPath, editorFolderName, savedDataFolderName);
-            if (!Directory.Exists(fullPath))
-            {
-                Directory.CreateDirectory(fullPath);
-                AssetDatabase.Refresh();
-            }
+            string fullPath = GetFullPath(savedDataFolderName);
             return Path.Combine(fullPath, fileName);
         }
 
         public static string GetScriptsFilePath(string fileName)
         {
+            string fullPath = GetFullPath(scriptsFolderName);
+            return Path.Combine(fullPath, fileName);
+        }
+
+        private static string GetFullPath(string subFolderName)
+        {
             string rootPath = FindHierarchyDesignerRootPath();
-            string fullPath = Path.Combine(rootPath, editorFolderName, scriptsFolderName);
+            string fullPath = Path.Combine(rootPath, editorFolderName, subFolderName);
             if (!Directory.Exists(fullPath))
             {
                 Directory.CreateDirectory(fullPath);
                 AssetDatabase.Refresh();
             }
-            return Path.Combine(fullPath, fileName);
+            return fullPath;
         }
 
         private static string FindHierarchyDesignerRootPath()

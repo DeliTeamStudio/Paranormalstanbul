@@ -7,10 +7,6 @@ namespace Verpha.HierarchyDesigner
 {
     public class HierarchyDesigner_Utility_Separator
     {
-        #region Properties
-        private static readonly Texture2D separatorInspectorIcon = HierarchyDesigner_Shared_Resources.SeparatorInspectorIcon;
-        #endregion
-
         #region Menu Items
         [MenuItem(HierarchyDesigner_Shared_MenuItems.Group_Separator + "/Create All Separators", false, HierarchyDesigner_Shared_MenuItems.LayerZero)]
         public static void CreateAllSeparators()
@@ -40,6 +36,20 @@ namespace Verpha.HierarchyDesigner
         }
         #endregion
 
+        #region Context menu
+        [MenuItem(HierarchyDesigner_Shared_MenuItems.ContextMenu_Separators + "/Create All Separators", false, HierarchyDesigner_Shared_MenuItems.LayerZero)]
+        public static void ContextMenu_Separator_CreateAllSeparators() => CreateAllSeparators();
+
+        [MenuItem(HierarchyDesigner_Shared_MenuItems.ContextMenu_Separators + "/Create Default Separator", false, HierarchyDesigner_Shared_MenuItems.LayerZero)]
+        public static void ContextMenu_Separator_CreateDefaultSeparator() => CreateDefaultSeparator();
+
+        [MenuItem(HierarchyDesigner_Shared_MenuItems.ContextMenu_Separators + "/Create Missing Separators", false, HierarchyDesigner_Shared_MenuItems.LayerZero)]
+        public static void ContextMenu_Separator_CreateMissingSeparators() => CreateMissingSeparators();
+
+        [MenuItem(HierarchyDesigner_Shared_MenuItems.ContextMenu_Separators + "/Transform GameObject into a Separator", false, HierarchyDesigner_Shared_MenuItems.LayerOne)]
+        public static void ContextMenu_Separator_TransformGameObjectIntoASeparator() => TransformGameObjectIntoASeparator();
+        #endregion
+
         #region Methods
         private static void CreateSeparator(string separatorName)
         {
@@ -47,7 +57,7 @@ namespace Verpha.HierarchyDesigner
             separator.tag = "EditorOnly";
             SetSeparatorState(separator, false);
             separator.SetActive(false);
-            if (separatorInspectorIcon != null) { EditorGUIUtility.SetIconForObject(separator, separatorInspectorIcon);  }
+            EditorGUIUtility.SetIconForObject(separator, HierarchyDesigner_Shared_Resources.SeparatorInspectorIcon);
             Undo.RegisterCreatedObjectUndo(separator, $"Create {separatorName}");
         }
 
@@ -81,6 +91,52 @@ namespace Verpha.HierarchyDesigner
                 }
             }
             return false;
+        }
+
+        private static void TransformGameObjectIntoASeparator()
+        {
+            GameObject selectedObject = Selection.activeGameObject;
+            if (selectedObject == null)
+            {
+                Debug.LogWarning("No GameObject selected.");
+                return;
+            }
+            if (selectedObject.GetComponents<Component>().Length > 1)
+            {
+                Debug.LogWarning("Separators cannot have components because separators are marked as editorOnly, meaning they will not be present in your game's build.");
+                return;
+            }
+
+            string separatorName = HierarchyDesigner_Configurable_Separator.StripPrefix(selectedObject.name);
+            HierarchyDesigner_Configurable_Separator.HierarchyDesigner_SeparatorData separatorData = HierarchyDesigner_Configurable_Separator.GetSeparatorData(separatorName);
+            if (separatorData == null)
+            {
+                HierarchyDesigner_Configurable_Separator.SetSeparatorData(
+                    separatorName,
+                    Color.white,
+                    false,
+                    Color.gray,
+                    new Gradient(),
+                    12,
+                    FontStyle.Normal,
+                    TextAnchor.MiddleCenter,
+                    HierarchyDesigner_Configurable_Separator.SeparatorImageType.Default
+                );
+                if (!selectedObject.name.StartsWith("//"))
+                {
+                    selectedObject.name = $"//{selectedObject.name}";
+                }
+                selectedObject.tag = "EditorOnly";
+                selectedObject.SetActive(false);
+                EditorGUIUtility.SetIconForObject(selectedObject, HierarchyDesigner_Shared_Resources.SeparatorInspectorIcon);
+                Debug.Log($"GameObject <color=#73FF7A>'{separatorName}'</color> was transformed into a Separator and added to the Separators dictionary.");
+            }
+            else
+            {
+                Debug.LogWarning($"GameObject <color=#FF7674>'{separatorName}'</color> already exists in the Separators dictionary.");
+                return;
+            }
+            SetSeparatorState(selectedObject, false);
         }
         #endregion
     }

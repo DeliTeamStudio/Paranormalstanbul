@@ -692,7 +692,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.1
-  m_Text: 'Current Version: 1.1.2 | Developed with Unity 2022.3.36f1'
+  m_Text: 'Current Version: 1.1.4.1f | Developed with Unity 2022.3.38f1'
 --- !u!222 &605510317
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1313,10 +1313,11 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1.1
   m_Text: "<size=35><b>1. Getting Started:</b></size>\n_________________________________________________\n\n-
-    All features are located on the top bar (\u2191) inside Hierarchy Designer. Alternatively,
-    some features can be accessed through multiple ways, such as the context menu
-    and shortcuts.\n\n- Folders and Separators are created inside their Manager Windows.\r\n\r\n-
-    You can toggle features and modify values in the settings windows under Configurations.\r\n\n_________________________________________________"
+    All features are located on the top bar (\u2191) inside Tools/Hierarchy Designer.
+    Alternatively, some features can be accessed through multiple ways, such as the
+    context menu and shortcuts.\n\n- Folders and Separators are created inside their
+    Manager Windows.\r\n\r\n- You can toggle features and modify values in the settings
+    windows under Configurations.\r\n\n_________________________________________________"
 --- !u!222 &1121789557
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1631,16 +1632,17 @@ MonoBehaviour:
     are visual dividers; they are meant to organize your scenes and provide clarity.
     Separators are editor-only and will NOT be included in your game's build. Therefore,
     do not use them as GameObject parents; instead, use folders.\n\n<b>Folders</b>
-    are great for organizing multiple gameObjects of the same or similar type (e.g.,
-    Static Environment Objects, Reflection Probes, and so on...). Folders have a
-    script called \"Hierarchy Designer Folder\" with one variable, 'Flatten Folder.'
-    If 'Flatten Folder' is true, on Game Start (in the Start method), the folder
-    will FREE all gameObject CHILDREN, and once that is complete, it will destroy
-    the folder.\n\n<b>Tools</b> and <b>Shortcuts</b> are meant to save you time and
-    speed up boring tasks such as renaming and selecting.\n\n<b>Helpers</b> are designed
-    to assist you with specific tasks. They are an extension of existent features.\n\n________________________________________________\n\n<i>You
-    can also manually create Folders and Separators (check the documentation). However,
-    you won\u2019t be able to customize their values.\r</i>"
+    are great for organizing multiple GameObjects of the same or similar type (e.g.,
+    static environment objects, reflection probes, and so on). Folders have a script
+    called \"Hierarchy Designer Folder\" with a main variable, 'Flatten Folder.'
+    If 'Flatten Folder' is true, in the Flatten Event (Awake or Start method), the
+    folder will FREE all GameObject children, and once that is complete, it will
+    destroy the folder.\n\n<b>Tools</b> and <b>Shortcuts</b> are meant to save you
+    time and speed up boring tasks such as renaming and selecting.\n\n<b>Helpers</b>
+    are designed to assist you with specific tasks. They are an extension of existent
+    features.\n\n________________________________________________\n\n<i>You can also
+    manually create Folders and Separators (check the documentation). However, you
+    won\u2019t be able to customize their values.\r</i>"
 --- !u!222 &1252225401
 CanvasRenderer:
   m_ObjectHideFlags: 0

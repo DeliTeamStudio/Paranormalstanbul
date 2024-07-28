@@ -14,5 +14,5 @@ AssetOrigin:
   productId: 283140
   packageName: ESave - Save System for Unity
   packageVersion: 1.0.5
-  assetPath: Assets/StylishEsper/ESave/Scripts/SaveFile.cs
-  uploadId: 672634
+  assetPath: Assets/Tools/ESave/Scripts/SaveFile.cs
+  uploadId: 679405

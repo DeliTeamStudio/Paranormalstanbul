@@ -27,6 +27,7 @@ namespace Verpha.HierarchyDesigner
         public const int LayerNineteen = 209;
         public const int LayerTwenty = 220;
         #endregion
+
         #region Item Name
         public const string Base_HierarchyDesigner = HierarchyDesigner_Shared_Constants.Base_HierarchyDesigner;
         public const string Group_Folder = Base_HierarchyDesigner + "/Folders";
@@ -131,7 +132,8 @@ namespace Verpha.HierarchyDesigner
         public const string Base_HierarchyDesigner_ContextMenu = "GameObject/Hierarchy Designer";
         public const string ContextMenu_Folders = Base_HierarchyDesigner_ContextMenu + "/Folders";
         public const string ContextMenu_Separators = Base_HierarchyDesigner_ContextMenu + "/Separators";
-        public const string ContextMenu_Select = Base_HierarchyDesigner_ContextMenu + "/Select";
+        public const string ContextMenu_Tools = "GameObject/Hierarchy Designer/Tools";
+        public const string ContextMenu_Select = ContextMenu_Tools + "/Select";
         public const string ContextMenu_Select_Type_2D = ContextMenu_Select + "/2D Objects";
         public const string ContextMenu_Select_Type_2D_Sprites = ContextMenu_Select_Type_2D + "/Sprites";
         public const string ContextMenu_Select_Type_2D_Physics = ContextMenu_Select_Type_2D + "/Physics";
@@ -145,7 +147,7 @@ namespace Verpha.HierarchyDesigner
         public const string ContextMenu_Select_Type_UI = ContextMenu_Select + "/UI";
         public const string ContextMenu_Select_Type_UI_Legacy = ContextMenu_Select_Type_UI + "/Legacy";
         public const string ContextMenu_Select_Type_UI_Effects = ContextMenu_Select_Type_UI + "/Effects";
-        public const string ContextMenu_Sort = Base_HierarchyDesigner_ContextMenu + "/Sort";
+        public const string ContextMenu_Sort = ContextMenu_Tools + "/Sort";
         #endregion
         #endregion
     }

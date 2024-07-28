@@ -25,6 +25,8 @@ namespace Verpha.HierarchyDesigner
             public int LayerFontSize = 10;
             public int TagLayerOffset = 5;
             public int TagLayerSpacing = 5;
+            public int HierarchyLineThickness = 1;
+            public Color HierarchyLineColor = HierarchyDesigner_Shared_ColorUtility.HexToColor("00000080");
             public Color LockColor = Color.white;
             public TextAnchor LockTextAnchor = TextAnchor.MiddleCenter;
             public FontStyle LockFontStyle = FontStyle.BoldAndItalic;
@@ -57,6 +59,8 @@ namespace Verpha.HierarchyDesigner
             HierarchyDesigner_Manager_GameObject.LayerFontSizeCache = LayerFontSize;
             HierarchyDesigner_Manager_GameObject.TagLayerOffsetCache = TagLayerOffset;
             HierarchyDesigner_Manager_GameObject.TagLayerSpacingCache = TagLayerSpacing;
+            HierarchyDesigner_Manager_GameObject.HierarchyLineThicknessCache = HierarchyLineThickness;
+            HierarchyDesigner_Manager_GameObject.HierarchyLineColorCache = HierarchyLineColor;
             HierarchyDesigner_Manager_GameObject.LockColorCache = LockColor;
             HierarchyDesigner_Manager_GameObject.LockTextAnchorCache = LockTextAnchor;
             HierarchyDesigner_Manager_GameObject.LockFontStyleCache = LockFontStyle;
@@ -254,6 +258,33 @@ namespace Verpha.HierarchyDesigner
             }
         }
 
+        public static int HierarchyLineThickness
+        {
+            get => designSettings.HierarchyLineThickness;
+            set
+            {
+                int clampedValue = Mathf.Clamp(value, 1, 3);
+                if (designSettings.HierarchyLineThickness != clampedValue)
+                {
+                    designSettings.HierarchyLineThickness = clampedValue;
+                    HierarchyDesigner_Manager_GameObject.HierarchyLineThicknessCache = clampedValue;
+                }
+            }
+        }
+
+        public static Color HierarchyLineColor
+        {
+            get => designSettings.HierarchyLineColor;
+            set
+            {
+                if (designSettings.HierarchyLineColor != value)
+                {
+                    designSettings.HierarchyLineColor = value;
+                    HierarchyDesigner_Manager_GameObject.HierarchyLineColorCache = value;
+                }
+            }
+        }
+
         public static Color LockColor
         {
             get => designSettings.LockColor;
@@ -350,6 +381,8 @@ namespace Verpha.HierarchyDesigner
                 LayerFontSize = 10,
                 TagLayerOffset = 5,
                 TagLayerSpacing = 5,
+                HierarchyLineThickness = 1,
+                HierarchyLineColor = HierarchyDesigner_Shared_ColorUtility.HexToColor("00000080"),
                 LockColor = Color.white,
                 LockTextAnchor = TextAnchor.MiddleCenter,
                 LockFontStyle = FontStyle.BoldAndItalic,
