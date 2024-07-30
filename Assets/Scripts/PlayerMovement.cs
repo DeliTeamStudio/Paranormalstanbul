@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
 
-        //flip
+        //flip.
         if (Input.GetKey(KeyCode.DownArrow))
         {
 
