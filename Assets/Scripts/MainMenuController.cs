@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class MainMenuController : MonoBehaviour
 {
 
@@ -39,6 +40,7 @@ public class MainMenuController : MonoBehaviour
         //play anim for opening main options panel
         anim.Play("buttonTweenAnims_on");
 
+
         //play click sfx
         playClickSound();
 
@@ -53,6 +55,7 @@ public class MainMenuController : MonoBehaviour
 
         //play anim for opening main options panel
         anim.Play("buttonTweenAnims_on");
+
 
         //play click sfx
         playClickSound();
@@ -86,6 +89,7 @@ public class MainMenuController : MonoBehaviour
         //play anim for opening game options panel
         anim.Play("OptTweenAnim_on");
 
+
         //play click sfx
         playClickSound();
 
@@ -100,6 +104,7 @@ public class MainMenuController : MonoBehaviour
 
         //play anim for opening game options panel
         anim.Play("OptTweenAnim_on");
+
 
         //play click sfx
         playClickSound();
@@ -116,6 +121,7 @@ public class MainMenuController : MonoBehaviour
 
         //play anim for opening game options panel
         anim.Play("OptTweenAnim_on");
+
 
         //play click sfx
         playClickSound();
@@ -147,6 +153,7 @@ public class MainMenuController : MonoBehaviour
     {
         //simply play anim for CLOSING main options panel
         anim.Play("OptTweenAnim_off");
+        //LoadGamePanel.SetActive(false);
 
         //play click sfx
         playClickSound();

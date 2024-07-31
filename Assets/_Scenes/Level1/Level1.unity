@@ -2276,6 +2276,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4920551500862124778, guid: 8279f13fd6a3c9a4bbb161de1c103a3b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4920551500862124778, guid: 8279f13fd6a3c9a4bbb161de1c103a3b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 06e860836fdb910458ee75f0cbac3fff, type: 2}
@@ -2690,6 +2694,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 711605683322396630, guid: bc0f60396022b3549bd9964cfe7bba21, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1573644934326483673, guid: bc0f60396022b3549bd9964cfe7bba21, type: 3}
       propertyPath: m_Name
       value: MainChar
@@ -2705,6 +2713,18 @@ PrefabInstance:
     - target: {fileID: 5014525770198048241, guid: bc0f60396022b3549bd9964cfe7bba21, type: 3}
       propertyPath: startDialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8582685803700122666, guid: bc0f60396022b3549bd9964cfe7bba21, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702429709445387537, guid: bc0f60396022b3549bd9964cfe7bba21, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981258111775238698, guid: bc0f60396022b3549bd9964cfe7bba21, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
