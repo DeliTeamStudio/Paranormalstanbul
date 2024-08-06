@@ -6,158 +6,62 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
-
-    Animator anim;
-
     public string newGameSceneName;
-    public int quickSaveSlotID;
 
     [Header("Options Panel")]
-    public GameObject MainOptionsPanel;
-    public GameObject StartGameOptionsPanel;
-    public GameObject GamePanel;
-    public GameObject ControlsPanel;
-    public GameObject GfxPanel;
+    public GameObject MainPanel;
+    public GameObject Options;
     public GameObject LoadGamePanel;
 
-    // Use this for initialization
-    void Start()
-    {
-        anim = GetComponent<Animator>();
-
-        //new key
-        PlayerPrefs.SetInt("quickSaveSlot", quickSaveSlotID);
-    }
-
-
-
-    public void openOptions()
-    {
-        //enable respective panel
-        MainOptionsPanel.SetActive(true);
-        StartGameOptionsPanel.SetActive(false);
-
-        //play anim for opening main options panel
-        anim.Play("buttonTweenAnims_on");
-
-
-        //play click sfx
-        playClickSound();
-
-
-    }
-
-    public void openStartGameOptions()
-    {
-        //enable respective panel
-        MainOptionsPanel.SetActive(false);
-        StartGameOptionsPanel.SetActive(true);
-
-        //play anim for opening main options panel
-        anim.Play("buttonTweenAnims_on");
-
-
-        //play click sfx
-        playClickSound();
-
-
-    }
-
-    public void openOptions_Game()
-    {
-        //enable respective panel
-        GamePanel.SetActive(true);
-        ControlsPanel.SetActive(false);
-        GfxPanel.SetActive(false);
-        LoadGamePanel.SetActive(false);
-
-        //play anim for opening game options panel
-        anim.Play("OptTweenAnim_on");
-
-        //play click sfx
-        playClickSound();
-
-    }
-    public void openOptions_Controls()
-    {
-        //enable respective panel
-        GamePanel.SetActive(false);
-        ControlsPanel.SetActive(true);
-        GfxPanel.SetActive(false);
-        LoadGamePanel.SetActive(false);
-
-        //play anim for opening game options panel
-        anim.Play("OptTweenAnim_on");
-
-
-        //play click sfx
-        playClickSound();
-
-    }
-    public void openOptions_Gfx()
-    {
-        //enable respective panel
-        GamePanel.SetActive(false);
-        ControlsPanel.SetActive(false);
-        GfxPanel.SetActive(true);
-        LoadGamePanel.SetActive(false);
-
-        //play anim for opening game options panel
-        anim.Play("OptTweenAnim_on");
-
-
-        //play click sfx
-        playClickSound();
-
-    }
-
-    public void openContinue_Load()
-    {
-        //enable respective panel
-        GamePanel.SetActive(false);
-        ControlsPanel.SetActive(false);
-        GfxPanel.SetActive(false);
-        LoadGamePanel.SetActive(true);
-
-        //play anim for opening game options panel
-        anim.Play("OptTweenAnim_on");
-
-
-        //play click sfx
-        playClickSound();
-
-    }
 
     public void newGame()
     {
         if (!string.IsNullOrEmpty(newGameSceneName))
-            SceneManager.LoadScene(newGameSceneName, LoadSceneMode.Additive);
+            SceneManager.LoadScene(newGameSceneName, LoadSceneMode.Single);
 
         else
-            Debug.Log("Please write a scene name in the 'newGameSceneName' field of the Main Menu Script and don't forget to " +
-                "add that scene in the Build Settings!");
+            Debug.Log("Please write a scene name");
     }
 
-
-    public void back_options()
+    public void loadShow()
     {
-        //simply play anim for CLOSING main options panel
-        anim.Play("buttonTweenAnims_off");
+        MainPanel.transform.localPosition = new Vector3(0, -300, 0);
+        LoadGamePanel.transform.localPosition = new Vector3(0, 0, 0);
 
+        //play click sfx
+        playClickSound();
+
+
+    }
+
+    public void optionsShow()
+    {
+        MainPanel.transform.localPosition = new Vector3(0, -300, 0);
+        Options.transform.localPosition = new Vector3(300, 0, 0);
+
+        //play click sfx
+        playClickSound();
+
+
+    }
+
+    public void backLoadGamePanel()
+    {
+        LoadGamePanel.transform.localPosition = new Vector3(589, 0, 0);
+        MainPanel.transform.localPosition = new Vector3(0, -70, 0);
 
         //play click sfx
         playClickSound();
     }
 
-    public void back_options_panels()
+
+    public void backOptionsPanel()
     {
-        //simply play anim for CLOSING main options panel
-        anim.Play("OptTweenAnim_off");
-        //LoadGamePanel.SetActive(false);
+        Options.transform.localPosition = new Vector3(-376, 0, 0);
+        MainPanel.transform.localPosition = new Vector3(0, -70, 0);
 
         //play click sfx
         playClickSound();
-
     }
 
     public void Quit()
@@ -165,12 +69,6 @@ public class MainMenuController : MonoBehaviour
         Application.Quit();
     }
 
-
-
-    public void playHoverClip()
-    {
-
-    }
 
     void playClickSound()
     {
